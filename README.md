@@ -20,7 +20,7 @@ Detailed AWS configurations and scripts used by the authors are provided in `aws
 
 ## Installation
 
-Benchexec, a framework used in this artifact for reliable benchmarking, is currently not supported under the Docker container.
+BenchExec, a framework used in this artifact for reliable benchmarking, is currently not supported under the Docker container.
 Therefore, the installation has to be done locally without using Docker.
 
 The reference environment uses **`Ubuntu 16.04`**.
@@ -179,7 +179,7 @@ Reproducing the results are divided into steps: (1) reproducing the data and (2)
 The first step may take a lot of time if you choose to reproduce all of the data.
 This step may be done using AWS to finish in a timely manner. See `aws/README.md` for more information.
 The second step shouldn't take much time and can be done locally.
-It still requires Benchexec to be installed locally though.
+It still requires BenchExec to be installed locally though.
 See `install_dependencies.sh`.
 
 Again, PIKOS's speedup comes from utilizing multiple CPU cores. 
@@ -207,15 +207,31 @@ $ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.84/ausearch.bc
 
 ### Reproducing data
 
-#### Using a local machine
-#### Using AWS
-#### Partial
-#### Complete
+We use [BenchExec](https://github.com/sosy-lab/benchexec) to do the experiments.
+An XML file passed to BenchExec defines the tool to be tested,
+its configuration, and the benchmarks that the tool should be tested on.
+`./run_definition/table3.xml` is an XML file that defines the runs that will
+produce the data used in table 3.
+Following command executes these runs:
+
+```
+$ ./run_benchexec.sh ./run_definition/table3.xml
+```
+
+The result will be saved in `./results-pikos`.
+To get a csv file from it, `cd` into it and run `table-generator`. It will output
+the csv file in the same directory.
+
+```
+$ cd results-pikos
+$ table-generator
+```
 
 ### Generating tables and figures
 
-The csv file produced above is used to generate tables and figures in the paper.
-The scripts rely on the existence of certain columns:
+The csv file produced above can be used to generate tables and figures in the paper.
+The scripts rely on the existence of certain columns. Make sure the headers are
+named the following way:
 - `benchmark`: Name of the benchmark.
 - `category`: The source of the benchmark. SVC or OSS. 
 - `walltime (s)`: Analysis time in IKOS
