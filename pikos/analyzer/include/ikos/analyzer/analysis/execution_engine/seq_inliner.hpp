@@ -5,7 +5,7 @@
  *
  * Author: Sung Kook Kim, Aditya V. Thakur
  *
- * Contact: {sklkim, avthakur}@lists.nasa.gov
+ * Contact: {sklkim, avthakur}@ucdavis.edu
  *
  * Notices:
  *

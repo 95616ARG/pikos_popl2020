@@ -42,3 +42,4 @@ cd gperftools \
 apt-get install -y python3-tempita python3-yaml lxcfs
 wget https://github.com/sosy-lab/benchexec/releases/download/1.18/benchexec_1.18-1_all.deb
 dpkg -i benchexec_1.18-1_all.deb
+usermod -aG benchexec $USER
