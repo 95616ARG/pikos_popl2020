@@ -22,7 +22,7 @@ apt-get update
 apt-get install -y gcc-8 g++-8 cmake libgmp-dev libtbb-dev \
    libboost-dev libboost-filesystem-dev libboost-test-dev \
    python python3 python-dev python-pygments python3-pip\
-   git autoconf automake m4 libtool pkg-config \
+   bc git autoconf automake m4 libtool pkg-config \
    libsqlite3-dev libz-dev libedit-dev llvm-8 llvm-8-dev llvm-8-tools clang-8
 
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 \

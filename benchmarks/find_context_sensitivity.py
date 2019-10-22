@@ -16,7 +16,7 @@ def check_timeout(benchmark, cs):
     result = subprocess.run([
         'runexec', '--no-container', '--walltimelimit=%d' % TIMEOUT, '--output=/dev/null',
         '--',
-        'ikos', '--rm-db', '-q', '-w', '--display-times=no', '--display-summary=no',
+        'pikos', '--rm-db', '-q', '-w', '--display-times=no', '--display-summary=no',
         '--progress=no', '--inline-all', '--proc=inter', '--no-checks', '--no-fixpoint-cache',
         '-cs=%d' % cs,
         '%s' % benchmark],
@@ -76,7 +76,6 @@ if __name__ == '__main__':
     cs_lst = pool.map(binary_search_cs, b_lst)
     with open('context_sensitivity.csv', 'w') as f:
         for b, cs in zip(b_lst, cs_lst):
-            print(str(p))
             f.write(str(b))
             f.write(',')
             f.write(str(cs))
