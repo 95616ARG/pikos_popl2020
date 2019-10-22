@@ -1,0 +1,112 @@
+###############################################################################
+#
+# Find GMP headers and libraries.
+#
+# Author: Maxime Arthaud
+#
+# Contact: ikos@lists.nasa.gov
+#
+# Notices:
+#
+# Copyright (c) 2018-2019 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
+# Disclaimers:
+#
+# No Warranty: THE SUBJECT SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY WARRANTY OF
+# ANY KIND, EITHER EXPRESSED, IMPLIED, OR STATUTORY, INCLUDING, BUT NOT LIMITED
+# TO, ANY WARRANTY THAT THE SUBJECT SOFTWARE WILL CONFORM TO SPECIFICATIONS,
+# ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+# OR FREEDOM FROM INFRINGEMENT, ANY WARRANTY THAT THE SUBJECT SOFTWARE WILL BE
+# ERROR FREE, OR ANY WARRANTY THAT DOCUMENTATION, IF PROVIDED, WILL CONFORM TO
+# THE SUBJECT SOFTWARE. THIS AGREEMENT DOES NOT, IN ANY MANNER, CONSTITUTE AN
+# ENDORSEMENT BY GOVERNMENT AGENCY OR ANY PRIOR RECIPIENT OF ANY RESULTS,
+# RESULTING DESIGNS, HARDWARE, SOFTWARE PRODUCTS OR ANY OTHER APPLICATIONS
+# RESULTING FROM USE OF THE SUBJECT SOFTWARE.  FURTHER, GOVERNMENT AGENCY
+# DISCLAIMS ALL WARRANTIES AND LIABILITIES REGARDING THIRD-PARTY SOFTWARE,
+# IF PRESENT IN THE ORIGINAL SOFTWARE, AND DISTRIBUTES IT "AS IS."
+#
+# Waiver and Indemnity:  RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS AGAINST
+# THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND SUBCONTRACTORS, AS WELL
+# AS ANY PRIOR RECIPIENT.  IF RECIPIENT'S USE OF THE SUBJECT SOFTWARE RESULTS
+# IN ANY LIABILITIES, DEMANDS, DAMAGES, EXPENSES OR LOSSES ARISING FROM SUCH
+# USE, INCLUDING ANY DAMAGES FROM PRODUCTS BASED ON, OR RESULTING FROM,
+# RECIPIENT'S USE OF THE SUBJECT SOFTWARE, RECIPIENT SHALL INDEMNIFY AND HOLD
+# HARMLESS THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND SUBCONTRACTORS,
+# AS WELL AS ANY PRIOR RECIPIENT, TO THE EXTENT PERMITTED BY LAW.
+# RECIPIENT'S SOLE REMEDY FOR ANY SUCH MATTER SHALL BE THE IMMEDIATE,
+# UNILATERAL TERMINATION OF THIS AGREEMENT.
+#
+###############################################################################
+
+if (NOT GMP_FOUND)
+  set(GMP_ROOT "" CACHE PATH "Path to gmp install directory")
+
+  find_path(GMP_INCLUDE_DIR
+    NAMES gmp.h
+    HINTS "${GMP_ROOT}/include"
+    DOC "Path to gmp include directory"
+  )
+
+  find_library(GMP_LIB
+    NAMES gmp
+    HINTS "${GMP_ROOT}/lib"
+    DOC "Path to gmp library"
+  )
+
+  find_path(GMPXX_INCLUDE_DIR
+    NAMES gmpxx.h
+    HINTS "${GMP_ROOT}/include"
+    DOC "Path to gmpxx include directory"
+  )
+
+  find_library(GMPXX_LIB
+    NAMES gmpxx
+    HINTS "${GMP_ROOT}/lib"
+    DOC "Path to gmpxx library"
+  )
+
+  if (GMP_INCLUDE_DIR)
+    # Detect the version using gmp.h or gmp-xxx.h
+    file(GLOB GMP_HEADERS "${GMP_INCLUDE_DIR}/gmp.h" "${GMP_INCLUDE_DIR}/gmp-*.h")
+
+    foreach(GMP_HEADER_PATH ${GMP_HEADERS})
+      file(READ "${GMP_HEADER_PATH}" GMP_HEADER)
+
+      if (GMP_HEADER MATCHES "define[ \t]+__GNU_MP_VERSION[ \t]+([0-9]+)")
+        set(GMP_MAJOR_VERSION "${CMAKE_MATCH_1}")
+      endif()
+      if (GMP_HEADER MATCHES "define[ \t]+__GNU_MP_VERSION_MINOR[ \t]+([0-9]+)")
+        set(GMP_MINOR_VERSION "${CMAKE_MATCH_1}")
+      endif()
+      if (GMP_HEADER MATCHES "define[ \t]+__GNU_MP_VERSION_PATCHLEVEL[ \t]+([0-9]+)")
+        set(GMP_PATCHLEVEL_VERSION "${CMAKE_MATCH_1}")
+      endif()
+    endforeach()
+
+    if (NOT DEFINED GMP_MAJOR_VERSION)
+      message(FATAL_ERROR "could not find __GNU_MP_VERSION in ${GMP_INCLUDE_DIR}/gmp.h")
+    endif()
+    if (NOT DEFINED GMP_MINOR_VERSION)
+      message(FATAL_ERROR "could not find __GNU_MP_VERSION_MINOR in ${GMP_INCLUDE_DIR}/gmp.h")
+    endif()
+    if (NOT DEFINED GMP_PATCHLEVEL_VERSION)
+      message(FATAL_ERROR "could not find __GNU_MP_VERSION_PATCHLEVEL in ${GMP_INCLUDE_DIR}/gmp.h")
+    endif()
+
+    set(GMP_VERSION "${GMP_MAJOR_VERSION}.${GMP_MINOR_VERSION}.${GMP_PATCHLEVEL_VERSION}")
+  endif()
+
+  include(FindPackageHandleStandardArgs)
+  find_package_handle_standard_args(GMP
+    REQUIRED_VARS
+      GMP_INCLUDE_DIR
+      GMP_LIB
+      GMPXX_INCLUDE_DIR
+      GMPXX_LIB
+    VERSION_VAR
+      GMP_VERSION
+    FAIL_MESSAGE
+      "Could NOT find GMP. Please provide -DGMP_ROOT=/path/to/gmp")
+endif()

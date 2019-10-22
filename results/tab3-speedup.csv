@@ -1,0 +1,6 @@
+benchmark,category,walltime (s),walltime (s)-4,speedup-4
+audit-2.8.4/aureport.bc,OSS,684.29,188.25,3.63
+feh-3.1.3/feh.bc,OSS,9004.83,2534.91,3.55
+ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--crypto--qat--qat_common--intel_qat.ko-entry_point.cil.out.c,SVC,10051.39,2970.02,3.38
+ratpoison-1.4.9/ratpoison.bc,OSS,1303.73,387.7,3.36
+ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--gpu--drm--amd--amdgpu--amdgpu.ko-entry_point.cil.out.c,SVC,2002.8,602.06,3.33

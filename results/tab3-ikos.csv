@@ -1,0 +1,6 @@
+benchmark,category,walltime (s),walltime (s)-4,speedup-4
+fvwm-2.6.8/FvwmForm.bc,OSS,14368.7,6913.47,2.08
+ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--ata--libata.ko-entry_point.cil.out.c,SVC,14138.04,7874.58,1.8
+ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--ata--libata.ko-entry_point.cil.out.c,SVC,14048.39,7925.82,1.77
+ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--mpt3sas--mpt3sas.ko-entry_point.cil.out.c,SVC,14035.69,4322.59,3.25
+ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--staging--rts5208--rts5208.ko-entry_point.cil.out.c,SVC,13540.72,7147.6,1.89
