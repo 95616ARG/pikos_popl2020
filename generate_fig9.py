@@ -49,8 +49,8 @@ if __name__ == '__main__':
     plt.legend(loc='upper left')
     plt.ylim(0,8)
     plt.yticks([0,1,2,4,6,8])
-    plt.xlabel(r'Number of threads, $k$')
-    plt.ylabel(r'Speedup of $\textsc{Pikos\textlangle{}k\textrangle{}}$')
+    plt.xlabel(r'Number of threads $k$')
+    plt.ylabel(r'Speedup of \textsc{Pikos}\textlangle{}$k$\textrangle{}')
     plt.savefig('fig9-a.png', bbox_inches='tight')
 
     plt.clf()
@@ -77,6 +77,7 @@ if __name__ == '__main__':
     plt.plot(x, y, 'k')
 
     plt.xlim(0.0, 1.0)
+    plt.ylim(0,1000)
     plt.xlabel('Scalability coefficient')
     plt.ylabel('Number of benchmarks')
     plt.savefig('fig9-b.png', bbox_inches='tight')
