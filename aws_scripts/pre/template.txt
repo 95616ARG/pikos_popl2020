@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export LD_PRELOAD="/usr/local/lib/libtcmalloc.so"
+export PYTHONPATH="/home/ubuntu:$PYTHONPATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+
+cd /home/ubuntu
+
+WHICH_SET=@
+WHAT_XML=&
+
+# Download the input from S3
+aws s3 cp s3://ikos/xml/set$WHICH_SET.txt aws.set
+aws s3 cp s3://ikos/xml/exp$WHAT_XML.xml bench.xml
+
+# Run benchexec
+benchexec --no-container bench.xml
+
+# Copy the results
+RESULT=exp$WHAT_XML-set$WHICH_SET
+mkdir tmp
+mv results tmp/$RESULT
+aws s3 cp --recursive tmp s3://results-ikos
+
+poweroff

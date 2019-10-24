@@ -46,7 +46,7 @@ if __name__ == '__main__':
         plt.ylabel(r'Frequency')
     
     
-        plt.text(0.05, 0.95, "Maximum speedup = %.2fx\nMinimum speedup = %.2fx" % (round(dff[speedup].max(), 2), round(dff[speedup].min(), 2)),
+        plt.text(0.55, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(dff[speedup].max(), 2), round(dff[speedup].min(), 2)),
                 transform=ax.transAxes, verticalalignment='top')
     
         plt.savefig('fig7-%d.png' % i, bbox_inches='tight')

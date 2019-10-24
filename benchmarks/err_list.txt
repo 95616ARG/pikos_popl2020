@@ -1,9 +1,9 @@
-OSS/bmake-20181221/bmake.bc
 OSS/cmark-0.28.3/cmark.bc
 OSS/coreutils-8.31/\[.bc
 OSS/coreutils-8.31/csplit.bc
 OSS/coreutils-8.31/ptx.bc
 OSS/enscript-1.6.6/states.bc
+OSS/bmake-20181221/bmake.bc
 OSS/freetds-1.00.98/tdspool.bc
 OSS/gnupg-2.2.15/gpgscm.bc
 OSS/mutt-1.11.4/mutt.bc

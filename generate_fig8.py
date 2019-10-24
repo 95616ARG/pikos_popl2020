@@ -16,50 +16,51 @@ if __name__ == '__main__':
     mpl.rcParams['ytick.labelsize'] = 17.0
     mpl.rcParams['xtick.labelsize'] = 17.0
     df = pd.read_csv(sys.argv[1])
+    df = df[df['walltime (s)'] >= 5]
 
-    pdf4 = df[df['status-4'] == 'OK']
-    pb4 = pdf4['walltime (s)'].sum()
-    ps4 = pdf4['walltime (s)-4'].sum()
-    pd4 = pdf4['speedup-4']
+    bsum = df['walltime (s)'].sum()
 
-    pdf6 = df[df['status-6'] == 'OK']
-    pb6 = pdf6['walltime (s)'].sum()
-    ps6 = pdf6['walltime (s)-6'].sum()
-    pd6 = pdf6['speedup-6']
+    cc2sum = df['walltime (s)-2'].sum()
+    cc2speedup = df['speedup-2']
 
-    pdf8 = df[df['status-8'] == 'OK']
-    pb8 = pdf8['walltime (s)'].sum()
-    ps8 = pdf8['walltime (s)-8'].sum()
-    pd8 = pdf8['speedup-8']
+    cc4sum = df['walltime (s)-4'].sum()
+    cc4speedup = df['speedup-4']
 
-    pdata = [pd4.values, pd6.values, pd8.values] 
-    labels = ['NT=4', 'NT=6', 'NT=8']
-    phmean = list(map(lambda x: scipy.stats.hmean(x), pdata))
-    pgmean = list(map(lambda x: scipy.stats.mstats.gmean(x), pdata))
-    pamean = list(map(lambda x: sum(x) / len(x), pdata))
-    x = [4,6,8]
+    cc6sum = df['walltime (s)-6'].sum()
+    cc6speedup = df['speedup-6']
 
-    
-    fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(9, 4), sharey=True)
-    ax1.set_xlabel('Number of threads, $k$')
-    ax1.set_ylabel(r'Observed speedups of $\textsc{Pikos\textlangle{}k\textrangle{}}$')
-    ax1.grid(b=True, ls='--', alpha=0.5)
-    ax1.boxplot(pdata, positions=x, sym='k.')
-    ax1.scatter(x, pamean, marker='.',  c='r', zorder=1000, label="Arithmetic mean")
-    ax1.scatter(x, pgmean, marker='*',  c='g', zorder=1000, label="Geometric mean")
-    ax1.scatter(x, phmean, marker='x',  c='b', zorder=1000, label="Harmonic mean")
+    cc8sum = df['walltime (s)-8'].sum()
+    cc8speedup = df['speedup-8']
+
+    speedups = [cc2speedup.values, cc4speedup.values, cc6speedup.values, cc8speedup.values] 
+    labels = ['NT=2', 'NT=4', 'NT=6', 'NT=8']
+    hmean = list(map(lambda x: scipy.stats.hmean(x), speedups))
+    gmean = list(map(lambda x: scipy.stats.mstats.gmean(x), speedups))
+    amean = list(map(lambda x: sum(x) / len(x), speedups))
+    x = [2,4,6,8]
+
     print("Arith, Geo, Harmonic")
-    print(pamean, pgmean, phmean)
-    ax1.legend(loc='upper left')
+    print(amean, gmean, hmean)
+    
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(5, 4), sharey=True)
+    ax.set_xlabel('Number of threads, $k$')
+    ax.set_ylabel(r'Observed speedups of $\textsc{Pikos\textlangle{}k\textrangle{}}$')
+    ax.grid(b=True, ls='--', alpha=0.5)
+    ax.boxplot(speedups, positions=x, sym='k.')
+    ax.scatter(x, amean, marker='.',  c='r', zorder=1000, label="Arithmetic mean")
+    ax.scatter(x, gmean, marker='*',  c='g', zorder=1000, label="Geometric mean")
+    ax.scatter(x, hmean, marker='x',  c='b', zorder=1000, label="Harmonic mean")
+    ax.legend(loc='upper left')
+    plt.savefig('fig8-a.png', bbox_inches='tight')
 
-    ax2.set_xlabel('Number of threads, $k$')
-    ax2.grid(b=True, ls='--', alpha=0.5)
-    ax2.violinplot(pdata, positions=x, showextrema=True, showmeans=False, showmedians=False, widths=0.8, points=1000)
-    ax2.scatter(x, pamean, marker='.',  c='r', zorder=1000, label="Arithmetic mean")
-    ax2.scatter(x, pgmean, marker='*',  c='g', zorder=1000, label="Geometric mean")
-    ax2.scatter(x, phmean, marker='x',  c='b', zorder=1000, label="Harmonic mean")
-    ax2.legend(loc='upper left')
-    ax2.set_xticks(x)
-
-    plt.subplots_adjust(bottom=0.15, wspace=0.05)
-    plt.savefig('fig8.png', bbox_inches='tight')
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(5, 4), sharey=True)
+    ax.set_xlabel('Number of threads, $k$')
+    ax.set_ylabel(r'Observed speedups of $\textsc{Pikos\textlangle{}k\textrangle{}}$')
+    ax.grid(b=True, ls='--', alpha=0.5)
+    ax.violinplot(speedups, positions=x, showextrema=True, showmeans=False, showmedians=False, widths=0.8, points=1000)
+    ax.scatter(x, amean, marker='.',  c='r', zorder=1000, label="Arithmetic mean")
+    ax.scatter(x, gmean, marker='*',  c='g', zorder=1000, label="Geometric mean")
+    ax.scatter(x, hmean, marker='x',  c='b', zorder=1000, label="Harmonic mean")
+    ax.legend(loc='upper left')
+    ax.set_xticks(x)
+    plt.savefig('fig8-b.png', bbox_inches='tight')

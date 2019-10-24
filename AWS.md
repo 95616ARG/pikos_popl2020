@@ -21,3 +21,8 @@ Instances were spawned from the image, and user-data were passed to make them
 run the assigned batch.
 This requires setting up S3 to collect the results and setting up an IAM role
 for the permissions.
+
+The scripts that we used are uploaded on `aws_scripts/`.
+One needs to configure the AWS in order to use the scripts.
+Specifically, buckets `ikos` and `results-ikos` should be in the S3.
+The Iam role should have access rights to these buckets.

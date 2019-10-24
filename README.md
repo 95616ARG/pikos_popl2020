@@ -234,6 +234,7 @@ The scripts rely on the existence of certain columns. Make sure the headers are
 named the following way:
 - `benchmark`: Name of the benchmark.
 - `category`: The source of the benchmark. SVC or OSS. 
+- `cs`: The context sensitivity used.
 - `walltime (s)`: Analysis time in IKOS
 - `walltime (s)-k`: Analysis time in PIKOS<k>, where k is arbitrary.
 - `speedup-k`: Speedup of PIKOS<k>
@@ -247,7 +248,7 @@ the csv file.
 It outputs `fig6.png`.
 
 ```
-$ ./generate_fig6.py ./results/base-nt4.csv
+$ ./generate_fig6.py ./results/all.csv
 ```
 
 #### Fig. 7
@@ -258,17 +259,26 @@ the csv file.
 It outputs 4 subfigures, `fig7-[0~3].png`.
 
 ```
-$ ./generate_fig7.py ./results/base-nt4.csv
+$ ./generate_fig7.py ./results/all.csv
 ```
 
+#### Fig. 8
+
+The script `generate_fig9.py` generates box plot and violin plot in Fig. 8.
+It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
+It outputs `fig8-a.png` and `fig8-b`.
+
+```
+$ ./generate_fig8.py ./results/all.csv
+```
 #### Fig. 9
 
 The script `generate_fig9.py` generates scalability coefficent plot in Fig. 9.
-It requires the columns `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
-It outputs `fig9.png`.
+It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
+It outputs `fig9-a.png` and `fig9-b.png`.
 
 ```
-$ ./generate_fig9.py ./results/base-nt4-nt6-nt8.csv
+$ ./generate_fig9.py ./results/all.csv
 ```
 
 #### Table 3
@@ -279,17 +289,16 @@ and `speedup-4` in the csv file.
 It outputs `tab3-speedup.csv` and `tab3-ikos.csv`, which are used to fill table 3.
 
 ```
-$ ./generate_tab3.py ./results/base-nt4.csv
+$ ./generate_tab3.py ./results/all.csv
 ```
 
 #### Table 4
 The script `generate_tab4.py` chooses the benchmarks for table 4 based on the
 scalability coefficient.
-It requires the columns `benchmark`, `category`, `walltime (s)`, `walltime (s)-4`,
-and `speedup-4` in the csv file.
+It requires the columns `benchmark`, `category`, `cs`, `walltime (s)`, `walltime (s)-4`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
 It outputs `tab4-candidates.csv`.
-One has to run PIKOS<12> and PIKOS<16> additionally.
+One has to run PIKOS<12> and PIKOS<16> on these benchmarks additionally to complete the table.
 
 ```
-$ ./generate_tab4.py ./results/base-nt4-nt6-nt8.csv
+$ ./generate_tab4.py ./results/all.csv
 ```
