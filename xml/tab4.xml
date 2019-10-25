@@ -13,7 +13,6 @@
     <option name="--no-fixpoint-cache"/>
     <option name="--prec">mem</option>
     <option name="-d">interval</option>
-    <option name="-cs">0</option>
 
     <rundefinition name="interval-base">
     </rundefinition>
@@ -21,8 +20,29 @@
       <option name="--cc"/>
       <option name="-nt">4</option>
     </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+    <rundefinition name="interval-cc12">
+      <option name="--cc"/>
+      <option name="-nt">12</option>
+    </rundefinition>
+    <rundefinition name="interval-cc16">
+      <option name="--cc"/>
+      <option name="-nt">16</option>
+    </rundefinition>
 
-    <tasks name="Table3">
-      <includesfile>../benchmarks/tab3.txt</includesfile>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>../benchmarks/test.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <includesfile>../benchmarks/tab4.set</includesfile>
+    </tasks>
+    <tasks>
+      <option name="-cs">18</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--net--wireless--mwifiex--mwifiex.ko-entry_point.cil.out.c</include>
     </tasks>
 </benchmark>

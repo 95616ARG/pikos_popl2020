@@ -75,6 +75,7 @@ if __name__ == '__main__':
     pool = Pool(numthreads)
     cs_lst = pool.map(binary_search_cs, b_lst)
     with open('context_sensitivity.csv', 'w') as f:
+        f.write('benchmark,cs\n')
         for b, cs in zip(b_lst, cs_lst):
             f.write(str(b))
             f.write(',')

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
-<benchmark tool="tools.ikos" walltimelimit="14400 s" threads="1">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
     <option name="-q"/>
     <option name="-w"/>
     <option name="--rm-db"/>

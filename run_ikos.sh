@@ -5,4 +5,4 @@ export LD_PRELOAD="/usr/local/lib/libtcmalloc.so"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 export PATH="$SCRIPT_DIR/build/run/bin:$PATH"
 
-$SCRIPT_DIR/build/run/bin/pikos --rm-db --cc $@
+$SCRIPT_DIR/build/run/bin/pikos --rm-db $@

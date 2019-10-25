@@ -11,15 +11,15 @@ import sys
 ec2 = boto3.client('ec2', region_name='us-west-2')
 
 MIN=0
-MAX=100
+MAX=200
 XML=1
 
-def run_instance(amiId, sg, key, iam, udName):
+def run_instance(instType, amiId, sg, key, iam, udName):
     '''
     Run the EC2 instance with given
     AmiImageId, LaunchTemplateName and UserDataName
     '''
-    instanceType = 'c5.2xlarge'
+    instanceType = instType
     with open(udName, 'r') as f:
         ud = f.read()
     return ec2.run_instances(
@@ -44,11 +44,12 @@ if __name__ == '__main__':
         subprocess.call(['sed', '-i', 's/&/%d/g' % XML, 'ud%d.txt' % i])
 
         # Lauch an instance
-        amiImageId = sys.argv[1]
-        securityGroup = sys.argv[2]
-        keyName = sys.argv[3]
-        iamRole = sys.argv[4]
-        instance = run_instance(amiImageId, securityGroup, keyName, iamRole, 'ud%d.txt' % i)
+        instType = sys.argv[1]
+        amiImageId = sys.argv[2]
+        securityGroup = sys.argv[3]
+        keyName = sys.argv[4]
+        iamRole = sys.argv[5]
+        instance = run_instance(instType, amiImageId, securityGroup, keyName, iamRole, 'ud%d.txt' % i)
         print(instance['Instances'][0]['InstanceId'])
         instances.append(instance['Instances'][0]['InstanceId'])
         subprocess.call(['rm', 'ud%d.txt' % i])

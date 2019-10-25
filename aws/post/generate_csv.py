@@ -26,9 +26,6 @@ if __name__ == '__main__':
     # Merge tables
     df = None
     for csv in glob.glob('results-ikos/**/*table.csv'):
-        subprocess.call(['sed', '-i', 's/bitcode-files\///', csv])
-        subprocess.call(['sed', '-i', 's/sv-benchmarks\///', csv])
-        subprocess.call(['sed', '-i', 's/^results-ikos\//filename/', csv])
         print(csv)
         new_df = pd.read_csv(csv, skiprows=2, delimiter='\t')
         new_df.drop([0], inplace=True)

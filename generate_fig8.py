@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.6
 
 import matplotlib.pyplot as plt
 import matplotlib as mpl

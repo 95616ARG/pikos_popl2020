@@ -16,7 +16,7 @@ compare the invariants computed by IKOS and PIKOS, or measure the speedup betwee
 Also, one can reproduce the data and generate tables and figures in the paper.
 
 As the paper runs the experiments on 4330 benchmarks, cloud computing environment is recommended to reproduce the results in a timely manner.
-Detailed AWS configurations and scripts used by the authors are provided in `aws/`.
+Detailed AWS configurations and scripts used by the authors are provided in [`aws/`](aws).
 
 ## Installation
 
@@ -26,7 +26,8 @@ Therefore, the installation has to be done locally without using Docker.
 The reference environment uses **`Ubuntu 16.04`**.
 
 An AMI is provided for AWS, so the installation may be skipped for it.
-See `aws/README.md` if you prefer using AWS.
+The name of the public AMI is `pikos-popl2020`.
+Username for connecting this image is `ubuntu`.
 
 ### Install Dependencies
 
@@ -34,7 +35,28 @@ The script `install_dependencies.sh` will install all required dependencies. It 
 
 ```
 $ sudo ./install_dependencies.sh
+$ sudo usermod -aG benchexec $USER
+$ ./install_python_dependencies.sh
 ```
+
+Dependencies:
+- LLVM and Clang 8.0.x
+- A C++ compiler that supports C++17 (gcc >= 8.3.0)
+- CMake >= 3.4.3
+- GMP >= 4.3.1
+- Python 3 >= 3.5.3
+- SQLite >= 3.6.20
+- Boost >= 1.58, <= 1.69
+- BenchExec >= 1.18
+- TBB >= 2
+- TCMalloc >= 4.5.3
+- texlive texlive-latex-extra dvipng
+- bc
+
+Python3.6 Dependencies:
+- pandas
+- matplotlib
+- scipy
 
 ### Build and Install PIKOS
 
@@ -46,7 +68,8 @@ $ ./install.sh
 
 ### Extract Benchmarks
 
-The script `extract_benchmarks.sh` will extract benchmarks in `./benchmarks/` directory. It does not require root access.
+The script `extract_benchmarks.sh` will extract benchmarks in [`./benchmarks/`](benchmarks) directory. It does not require root access.
+The sha256sum of the downloaded file is d4f355097133e1b32135d9fd530b33b02ea11536fd930c6fc3ee9266f6b1b1c1.
 
 ```
 $ ./extract_benchmarks.sh
@@ -112,27 +135,27 @@ Using the `-nt` parameter restricts the number of allowed threads in PIKOS.
 The following command will run PIKOS with maximum 4 threads:
 
 ```
-$ ./run_pikos.sh -nt=4 ./benchmarks/test.c
+$ ./run_pikos.sh -nt=4 ./benchmarks/OSS/audit-2.8.4/ausearch.bc
 ```
 
 `-nt=4` is the default.
 `-nt=0` will let TBB library decide the number of threads.
 Authors arbitrary chose 99 as the maximum number of threads.
-To change this, modify line 991 of `./pikos/analyzer/src/ikos_analyzer.cpp` and install again.
+To change this, modify line 991 of [`./pikos/analyzer/src/ikos_analyzer.cpp`](pikos/analyzer/src/ikos_analyzer.cpp) and install again.
 
 ### Context sensitivity
 
 Using the `-cs` parameter restricts the context sensitivity in PIKOS.
-This number corresponds to the allowed depth of function call inlining.
-The following command will run PIKOS with maximum 10 depth of function calls:
+This number corresponds to the allowed depth of dynamic inlining in the interprocedural analysis.
+The following command will run PIKOS with maximum 5 depth of function calls:
 
 ```
-$ ./run_pikos.sh -cs=10 ./benchmarks/test.c
+$ ./run_pikos.sh -cs=5 ./benchmarks/OSS/audit-2.8.4/ausearch.bc
 ```
 
 `-cs=0` is the default, and it disables this restriction.
 This restriction is used only for the benchmarks that take longer than 4 hours to analyze.
-See `benchmarks/README.md` for more details.
+See [`benchmarks/README.md`](benchmarks/README.md) for more details.
 
 ### Numerical abstract domains
 
@@ -149,7 +172,7 @@ By default, PIKOS uses the **interval** domain, and experiments were conducted w
 If you want to try other domains, use the `-d` parameter:
 
 ```
-$ ./run_pikos.sh -nt=4 -d=dbm ./benchmarks/test.c
+$ ./run_pikos.sh -nt=4 -d=dbm ./benchmarks/OSS/audit-2.8.4/ausearch.bc
 ```
 
 ### Disabling checks
@@ -157,10 +180,10 @@ $ ./run_pikos.sh -nt=4 -d=dbm ./benchmarks/test.c
 Passing the options, `--no-checks --no-fixpoint-cache`, disables the checks -- such as buffer overflow analysis, division by zero analysis, null pointer analysis, etc -- after computing the invariants:
 
 ```
-$ ./run_pikos.sh -nt=4 -d=dbm --no-checks --no-fixpoint-cache ./benchmarks/test.c
+$ ./run_pikos.sh -nt=4 -d=dbm --no-checks --no-fixpoint-cache ./benchmarks/OSS/audit-2.8.4/ausearch.bc
 ```
 
-**These are the default options when timing the results**, as we are only concerned about the invariant computation time.
+**These are passed when timing the results**, as we are only concerned about the invariant computation time.
 
 ### Invariants comparison between IKOS and PIKOS
 
@@ -177,9 +200,9 @@ $ ./run_pikos.sh -nt=104 ./benchmarks/test.c
 
 Reproducing the results are divided into steps: (1) reproducing the data and (2) generating tables/figures from the data.
 The first step may take a lot of time if you choose to reproduce all of the data.
-This step may be done using AWS to finish in a timely manner. See `aws/README.md` for more information.
+This step may be done using AWS to finish in a timely manner. See [`aws/README.md`](aws/README.md) for more information.
 The second step shouldn't take much time and can be done locally.
-It still requires BenchExec to be installed locally though.
+It still requires the dependencies to be installed locally.
 See `install_dependencies.sh`.
 
 Again, PIKOS's speedup comes from utilizing multiple CPU cores. 
@@ -199,7 +222,7 @@ It takes the same command line options as `run_pikos.sh`.
 It simply outputs the speedup, defined as the running time of IKOS / running time of PIKOS.
 
 ```
-$ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.84/ausearch.bc
+$ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.8.4/ausearch.bc
 >>> Running time of IKOS  = 31.33911 seconds.
 >>> Running time of PIKOS = 10.12769 seconds.
 >>> Speedup (running time of IKOS / running time of PIKOS) = 3.09x.
@@ -207,37 +230,102 @@ $ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.84/ausearch.bc
 
 ### Reproducing data
 
-We use [BenchExec](https://github.com/sosy-lab/benchexec) to do the experiments.
-An XML file passed to BenchExec defines the tool to be tested,
-its configuration, and the benchmarks that the tool should be tested on.
-`./run_definition/table3.xml` is an XML file that defines the runs that will
-produce the data used in table 3.
-Following command executes these runs:
+The following scripts generate data in a csv file.
+It has the following columns:
+- `benchmark`: Name of the benchmark.
+- `category`: The source of the benchmark. SVC or OSS. 
+- `cs`: The context sensitivity used.
+- `walltime (s)`: Analysis time in IKOS
+- `walltime (s)-k`: Analysis time in PIKOS<k>, where k is the number of threads allowed.
+- `speedup-k`: Speedup of PIKOS<k>
+
+Ignore warnings about No propertyfile, variable replacement, and file name appearing twice
+when running the scripts.
+
+#### Reproduce all
+
+It runs IKOS, PIKOS<2>, PIKOS<4>, PIKOS<6>, and PIKOS<8> on all of the benchmarks.
+It outputs `all.csv`.
+This takes a lot of time (roughly 48 days, if using only a single machine).
 
 ```
-$ ./run_benchexec.sh ./run_definition/table3.xml
+$ ./reproduce_all-8.sh
 ```
 
-The result will be saved in `./results-pikos`.
-To get a csv file from it, `cd` into it and run `table-generator`. It will output
-the csv file in the same directory.
+#### Reproduce rq1
+
+It runs IKOS and PIKOS<4> on all of the benchmarks.
+It outputs `rq1.csv`.
+This can be used to answer RQ1.
+This takes a lot of time too (roughly 25 days, if using only a single machine).
 
 ```
-$ cd results-pikos
-$ table-generator
+$ ./reproduce_rq1-4.sh
+```
+
+#### Reproduce tab3
+
+It runs IKOS and PIKOS<4> on benchmarks in table 3.
+It outputs `tab3.csv`.
+This can be used to generate table 3.
+This takes roughly 36 hours, if using only a single machine.
+
+```
+$ ./reproduce_tab3-4.sh
+```
+
+Alternatively, one can choose to run only the upper part of table 3.
+It outputs `tab3-1.csv`.
+This takes roughly 8 hours, if using only a single machine.
+
+```
+$ ./reproduce_tab3-1-4.sh
+```
+
+The following command measures the speedup for the benchmark with highest
+speedup in PIKOS<4>.
+The result for this benchmark can be found in the first entry of the table 3.
+
+```
+$ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.8.4/aureport.bc
+>>> Running time of IKOS  = 684.19316 seconds.
+>>> Running time of PIKOS = 10.12769 seconds.
+>>> Speedup (running time of IKOS / running time of PIKOS) = 3.63x.
+```
+
+#### Reproduce tab4
+
+It runs IKOS, PIKOS<4>, PIKOS<8>, PIKOS<12>, and PIKOS<16> on benchmarks in table 4.
+It outputs `tab4.csv`.
+This can be used to generate table 4.
+This takes roughly 12 hours, if using only a single machine.
+
+```
+$ ./reproduce_tab4-16.sh
+```
+
+The following command measures the speedups for the benchmark with highest
+scalability, `./benchmarks/OSS/audit-2.8.4/aureport.bc/`.
+The result for this benchmark can be found in the first entry of the table 4.
+
+```
+$ ./measure_tab4-aureport.sh
+>>> Running time of IKOS  = 684.19316 seconds.
+>>> Running time of PIKOS<4> = 188.25443 seconds.
+>>> Speedup (running time of IKOS / running time of PIKOS<4>) = 3.63x.
+>>> Running time of PIKOS<8> = 104.18474 seconds.
+>>> Speedup (running time of IKOS / running time of PIKOS<8>) = 6.57x.
+>>> Running time of PIKOS<12> = 75.86368 seconds.
+>>> Speedup (running time of IKOS / running time of PIKOS<12>) = 9.02x.
+>>> Running time of PIKOS<16> = 62.36445 seconds.
+>>> Speedup (running time of IKOS / running time of PIKOS<16>) = 10.97x.
 ```
 
 ### Generating tables and figures
 
 The csv file produced above can be used to generate tables and figures in the paper.
-The scripts rely on the existence of certain columns. Make sure the headers are
-named the following way:
-- `benchmark`: Name of the benchmark.
-- `category`: The source of the benchmark. SVC or OSS. 
-- `cs`: The context sensitivity used.
-- `walltime (s)`: Analysis time in IKOS
-- `walltime (s)-k`: Analysis time in PIKOS<k>, where k is arbitrary.
-- `speedup-k`: Speedup of PIKOS<k>
+We will demonstrate with the data obtained by the authors in `./results-paper/all.csv`,
+which can be reproduced by using the script described in [Reproduce all](#Reproduce-all).
 
 #### Fig. 6
 
@@ -248,7 +336,7 @@ the csv file.
 It outputs `fig6.png`.
 
 ```
-$ ./generate_fig6.py ./results/all.csv
+$ ./generate_fig6.py ./results-paper/all.csv
 ```
 
 #### Fig. 7
@@ -259,17 +347,17 @@ the csv file.
 It outputs 4 subfigures, `fig7-[0~3].png`.
 
 ```
-$ ./generate_fig7.py ./results/all.csv
+$ ./generate_fig7.py ./results-paper/all.csv
 ```
 
 #### Fig. 8
 
 The script `generate_fig9.py` generates box plot and violin plot in Fig. 8.
 It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
-It outputs `fig8-a.png` and `fig8-b`.
+It outputs `fig8-a.png` and `fig8-b.png`.
 
 ```
-$ ./generate_fig8.py ./results/all.csv
+$ ./generate_fig8.py ./results-paper/all.csv
 ```
 #### Fig. 9
 
@@ -278,7 +366,7 @@ It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, a
 It outputs `fig9-a.png` and `fig9-b.png`.
 
 ```
-$ ./generate_fig9.py ./results/all.csv
+$ ./generate_fig9.py ./results-paper/all.csv
 ```
 
 #### Table 3
@@ -289,7 +377,7 @@ and `speedup-4` in the csv file.
 It outputs `tab3-speedup.csv` and `tab3-ikos.csv`, which are used to fill table 3.
 
 ```
-$ ./generate_tab3.py ./results/all.csv
+$ ./generate_tab3.py ./results-paper/all.csv
 ```
 
 #### Table 4
@@ -300,5 +388,5 @@ It outputs `tab4-candidates.csv`.
 One has to run PIKOS<12> and PIKOS<16> on these benchmarks additionally to complete the table.
 
 ```
-$ ./generate_tab4.py ./results/all.csv
+$ ./generate_tab4.py ./results-paper/all.csv
 ```

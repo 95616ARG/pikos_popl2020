@@ -1,3 +1,4 @@
+benchmark,cs
 OSS/hspell-1.4/hspell.bc,5
 OSS/yajl-2.1.0/json_reformat.bc,5
 OSS/yajl-2.1.0/json_verify.bc,5

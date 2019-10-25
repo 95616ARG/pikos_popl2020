@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>../benchmarks/test.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <includesfile>../benchmarks/lt4hours.set</includesfile>
+    </tasks>
+    <tasks>
+      <option name="-cs">5</option>
+      <include>../benchmarks/OSS/hspell-1.4/hspell.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">5</option>
+      <include>../benchmarks/OSS/yajl-2.1.0/json_reformat.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">5</option>
+      <include>../benchmarks/OSS/yajl-2.1.0/json_verify.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>../benchmarks/OSS/splint-3.1.2.git20180129/splint.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>../benchmarks/OSS/udns-0.4/dnsget.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>../benchmarks/OSS/udns-0.4/ex-rdns.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>../benchmarks/OSS/udns-0.4/rblcheck.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">7</option>
+      <include>../benchmarks/OSS/vim-8.1.1073/vim.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">7</option>
+      <include>../benchmarks/OSS/w3m-0.5.3.git20180125/w3m.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/OSS/backuppc-4.3.0/rsync_bpc.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/OSS/cvs-1.11.23/cvs.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/OSS/gnugo-3.8/gnugo.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovn-controller.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovn-northd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/OSS/screen-4.6.2/screen.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/algol68g-2.8.5/a68g.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/gnupg-2.2.15/gpg.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/joe-4.6/joe.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/latex2rtf-2.3.17/latex2rtf.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/less-530/less.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/mathomatic-16.0.5/mathomatic.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovn-controller-vtep.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovn-trace.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-vswitchd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/tcsh-6.20.00/tcsh.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/tup-0.7.8/tup.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/vice-3.3/x128.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/vice-3.3/xpet.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/vice-3.3/xscpu64.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>../benchmarks/OSS/x11vnc-0.9.16/x11vnc.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--scsi--qla2xxx--qla2xxx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--qla2xxx--qla2xxx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/dhcp-4.4.1/dhclient.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/dhcp-4.4.1/dhcpd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/freetds-1.00.98/tsql.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/minicom-2.7.1/minicom.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovsdb-server.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-testcontroller.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/unbound-1.9.1/unbound.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/unbound-1.9.1/unbound-checkconf.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/vsid.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/x64.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/x64dtv.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/x64sc.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/xcbm2.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/xcbm5x0.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/xplus4.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>../benchmarks/OSS/vice-3.3/xvic.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/calcurse-4.4.0/calcurse.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/dnsmasq-2.80/dnsmasq.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/fossil-2.8/fossil.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/naim/naim.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/premake-4.3/premake4.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/wget-1.20.3/wget.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">12</option>
+      <include>../benchmarks/OSS/bspwm-0.9.7/bspwm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">12</option>
+      <include>../benchmarks/OSS/crash-7.2.5/crash.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">12</option>
+      <include>../benchmarks/OSS/genius-1.0.24/genius.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">11</option>
+      <include>../benchmarks/OSS/gnupg-2.2.15/gpgsm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">12</option>
+      <include>../benchmarks/OSS/julius-4.5/julius.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">12</option>
+      <include>../benchmarks/OSS/nasm-2.14.02/nasm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">12</option>
+      <include>../benchmarks/OSS/netdata-1.13.0/netdata.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/bird-2.0.3/bird.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/fvwm-2.6.8/FvwmForm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/monit-5.25.3/monit.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/naev-0.7.0/naev.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/nano-4.1/nano.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/openvpn-2.4.7/openvpn.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/ponyc-0.28.0/ponyc.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/premake3-3.7/premake.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/OSS/testdisk-7.0/testdisk.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--scsi--aic7xxx--aic79xx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--aic7xxx--aic79xx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/babeld-1.8.4/babeld.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/fvwm-2.6.8/fvwm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/gnupg-2.2.15/gpgv.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/mosquitto-1.5.8/mosquitto.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-appctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-dpctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-ofctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/OSS/zstd-1.4.0/zstdmt.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">14</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--scsi--mpt2sas--mpt2sas.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/gnupg-2.2.15/dirmngr.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/jwm-2.3.7/jwm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovn-nbctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovn-sbctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-vsctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/vtep-ctl.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--net--ethernet--broadcom--bnx2x--bnx2x.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--ethernet--broadcom--bnx2x--bnx2x.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/coreutils-8.31/expr.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">15</option>
+      <include>../benchmarks/OSS/fastjar-0.98/grepjar.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/gawk-4.2.1/gawk.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/lz4-1.9.0/lz4.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/mg-20180824/mg.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovsdb-tool.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/rogue-5.4.4/rogue.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/strace-5.0/strace.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/stunnel-5.50/stunnel.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>../benchmarks/OSS/tor-0.3.5.8/tor.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">17</option>
+      <include>../benchmarks/OSS/coreutils-8.31/du.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">17</option>
+      <include>../benchmarks/OSS/openvswitch-2.11.0/ovs-vlan-bug-workaround.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">17</option>
+      <include>../benchmarks/OSS/tarsnap-1.0.39/tarsnap.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">18</option>
+      <include>../benchmarks/OSS/dhcp-4.4.1/omshell.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">18</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--media--pci--ivtv--ivtv.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">18</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--net--wireless--mwifiex--mwifiex.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">18</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--wireless--mwifiex--mwifiex.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">19</option>
+      <include>../benchmarks/OSS/opensips-2.4.5/opensips.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">19</option>
+      <include>../benchmarks/OSS/openssh-8.0p1/ssh-keyscan.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">19</option>
+      <include>../benchmarks/OSS/rdesktop-1.8.4/rdesktop.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">19</option>
+      <include>../benchmarks/OSS/snd-19.3/snd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">19</option>
+      <include>../benchmarks/OSS/vice-3.3/c1541.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">20</option>
+      <include>../benchmarks/OSS/ngircd-25/ngircd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">20</option>
+      <include>../benchmarks/OSS/openssh-8.0p1/sshd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">21</option>
+      <include>../benchmarks/OSS/mc-4.8.22/mc.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">21</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--ata--libata.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">22</option>
+      <include>../benchmarks/OSS/keepalived-2.0.13/keepalived.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">22</option>
+      <include>../benchmarks/OSS/nsd-4.1.27/nsd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">22</option>
+      <include>../benchmarks/OSS/pcb-4.1.3/pcb.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">22</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--staging--rts5208--rts5208.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">23</option>
+      <include>../benchmarks/OSS/geeqie-1.4/geeqie.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">23</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--staging--rts5208--rts5208.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">23</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--rts5208--rts5208.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">24</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--net--fddi--skfp--skfp.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">24</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--ata--libata.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">24</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--fddi--skfp--skfp.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">24</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--ata--libata.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">24</option>
+      <include>../benchmarks/OSS/wpa_supplicant-2.6/wpa_supplicant.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">29</option>
+      <include>../benchmarks/OSS/lvm2-2.02.184/lvm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">32</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--staging--rtl8723au--r8723au.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">32</option>
+      <include>../benchmarks/SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--rtl8723au--r8723au.ko-entry_point.cil.out.c</include>
+    </tasks>
+</benchmark>
