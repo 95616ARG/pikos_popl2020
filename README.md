@@ -28,8 +28,8 @@ The reference environment uses **`Ubuntu 16.04`**.
 ### AMI
 
 An AMI is provided for AWS, so the installation may be skipped for it.
-The name of the public AMI is `pikos-popl2020`.
-Its AMI-id is `ami-02b7699fc03251daa`.
+The name of the public AMI is `pikos_popl2020`.
+Its AMI-id is `ami-0dd259dbd4b5324c9`.
 Username for connecting this image is `ubuntu`.
 
 ### Docker
