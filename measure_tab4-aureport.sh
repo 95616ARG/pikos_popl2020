@@ -5,7 +5,7 @@ export LD_PRELOAD="/usr/local/lib/libtcmalloc.so"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 export PATH="$SCRIPT_DIR/build/run/bin:$PATH"
 
-read IKOS_EC IKOS_T <<< $(runexec --quiet --container --walltimelimit=14400 --output=/dev/null -- ./run_ikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
+read IKOS_EC IKOS_T <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_ikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
 if [[ $IKOS_EC != 0 ]]
@@ -14,7 +14,7 @@ then
   exit $IKOS_EC
 fi
 
-read PIKOS_EC4 PIKOS_T4 <<< $(runexec --quiet --container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=4 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
+read PIKOS_EC4 PIKOS_T4 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=4 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
 if [[ $PIKOS_EC4 != 0 ]]
@@ -23,7 +23,7 @@ then
   exit $PIKOS_EC4
 fi
 
-read PIKOS_EC8 PIKOS_T8 <<< $(runexec --quiet --container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=8 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
+read PIKOS_EC8 PIKOS_T8 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=8 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
 if [[ $PIKOS_EC8 != 0 ]]
@@ -32,7 +32,7 @@ then
   exit $PIKOS_EC8
 fi
 
-read PIKOS_EC12 PIKOS_T12 <<< $(runexec --quiet --container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=12 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
+read PIKOS_EC12 PIKOS_T12 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=12 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
 if [[ $PIKOS_EC12 != 0 ]]
@@ -41,7 +41,7 @@ then
   exit $PIKOS_EC12
 fi
 
-read PIKOS_EC16 PIKOS_T16 <<< $(runexec --quiet --container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=16 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
+read PIKOS_EC16 PIKOS_T16 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=16 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
 if [[ $PIKOS_EC16 != 0 ]]

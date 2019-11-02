@@ -7,4 +7,4 @@ export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
 export PATH="$SCRIPT_DIR/build/run/bin:$PATH"
 
 echo $PYTHONPATH
-benchexec --container -o ./results-pikos/ $@
+benchexec --no-container -o results $@

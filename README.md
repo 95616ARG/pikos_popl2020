@@ -25,9 +25,28 @@ Therefore, the installation has to be done locally without using Docker.
 
 The reference environment uses **`Ubuntu 16.04`**.
 
+### AMI
+
 An AMI is provided for AWS, so the installation may be skipped for it.
 The name of the public AMI is `pikos-popl2020`.
+Its AMI-id is `ami-02b7699fc03251daa`.
 Username for connecting this image is `ubuntu`.
+
+### Docker
+
+A docker image is also provided as an alternative. Skip the installation section if you are using the docker.
+One needs `docker` installed.
+The image is availabe in the DockerHub repository `skkeem/pikos:dev`.
+The following command will download the image and run it interactivley:
+```
+$ docker run --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -w /pikos_popl2020 -it --privileged skkeem/pikos:dev
+```
+sha256:3ed199b26fade47517a9a7f308e81cc436f0c2a8a46dd4714fe62c1e97f82219
+
+One can also build the image using the Dockerfile in this repo.
+```
+$ docker build -t skkeem/pikos:dev .
+```
 
 ### Install Dependencies
 
@@ -289,7 +308,7 @@ The result for this benchmark can be found in the first entry of the table 3.
 ```
 $ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.8.4/aureport.bc
 >>> Running time of IKOS  = 684.19316 seconds.
->>> Running time of PIKOS = 10.12769 seconds.
+>>> Running time of PIKOS = 188.25443 seconds.
 >>> Speedup (running time of IKOS / running time of PIKOS) = 3.63x.
 ```
 

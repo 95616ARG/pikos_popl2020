@@ -22,7 +22,7 @@ apt-get update
 apt-get install -y gcc-8 g++-8 cmake libgmp-dev libtbb-dev \
    libboost-dev libboost-filesystem-dev libboost-test-dev \
    python3.6 python3.6-dev \
-   bc autoconf automake m4 libtool pkg-config \
+   curl bc autoconf automake m4 libtool pkg-config \
    libsqlite3-dev libz-dev libedit-dev llvm-8 llvm-8-dev llvm-8-tools clang-8 \
    texlive dvipng texlive-latex-extra
 
