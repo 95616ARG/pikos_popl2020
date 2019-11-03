@@ -24,5 +24,7 @@ if __name__ == '__main__':
     # df.to_csv('base-nt2-nt4-nt6-nt8-slope.csv',index=False)
 
     df = df.sort_values(by='slope', ascending=False)
+    print(df[0:5][['benchmark', 'category', 'cs', 'walltime (s)', 'speedup-2', 'speedup-4', 'speedup-6', 'speedup-8', 'slope']])
     df[0:5][['benchmark', 'category', 'cs', 'walltime (s)', 'speedup-2', 'speedup-4', 'speedup-6', 'speedup-8', 'slope']].to_csv('tab4-candidates.csv', index=False)
     df[0:5][['benchmark']].to_csv('tab4-candidates.txt', index=False)
+    print('\nTable entry candidates saved to "tab4-candidates.csv" and "tab4-candidates.txt".')

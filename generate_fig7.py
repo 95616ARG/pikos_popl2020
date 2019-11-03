@@ -56,3 +56,4 @@ if __name__ == '__main__':
     
         plt.savefig('fig7-%d.png' % i, bbox_inches='tight')
         plt.clf()
+    print('Figures saved to "fig7-[0~3].png".')

@@ -81,3 +81,4 @@ if __name__ == '__main__':
     print('Geometric mean (top 25%): ', pgmq)
     print('Arithmetic mean (top 25%): ', df[speedup].mean())
     plt.savefig('fig6.png', bbox_inches='tight')
+    print('\nFigure saved to "fig6.png".')

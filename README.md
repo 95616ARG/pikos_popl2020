@@ -20,16 +20,13 @@ Detailed AWS configurations and scripts used by the authors are provided in [`aw
 
 ## Installation
 
-BenchExec, a framework used in this artifact for reliable benchmarking, is currently not supported under the Docker container.
-Therefore, the installation has to be done locally without using Docker.
-
 The reference environment uses **`Ubuntu 16.04`**.
 
 ### AMI
 
 An AMI is provided for AWS, so the installation may be skipped for it.
-The name of the public AMI is `pikos_popl2020`.
-Its AMI-id is `ami-0dd259dbd4b5324c9`.
+The name of the public AMI is `pikos-popl2020`.
+Its AMI-id is `ami-04c5929ccd4e5b841`.
 Username for connecting this image is `ubuntu`.
 
 ### Docker
@@ -41,7 +38,7 @@ The following command will download the image and run it interactivley:
 ```
 $ docker run --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -w /pikos_popl2020 -it --privileged skkeem/pikos:dev
 ```
-sha256:3ed199b26fade47517a9a7f308e81cc436f0c2a8a46dd4714fe62c1e97f82219
+sha256:20562d568bfa0f5e521b9f326393fd3dff67054380eb0aa7177c298e8350a0f8
 
 One can also build the image using the Dockerfile in this repo.
 ```

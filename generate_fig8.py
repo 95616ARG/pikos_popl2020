@@ -39,8 +39,12 @@ if __name__ == '__main__':
     amean = list(map(lambda x: sum(x) / len(x), speedups))
     x = [2,4,6,8]
 
-    print("Arith, Geo, Harmonic")
-    print(amean, gmean, hmean)
+    print("Arithematic means of PIKOS<k> (k = 2, 4, 6, 8): ")
+    print(amean)
+    print("Geomentric means of PIKOS<k> (k = 2, 4, 6, 8): ")
+    print(gmean)
+    print("Harmonic means of PIKOS<k> (k = 2, 4, 6, 8): ")
+    print(hmean)
     
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(5, 4), sharey=True)
     ax.set_xlabel('Number of threads $k$')
@@ -67,3 +71,4 @@ if __name__ == '__main__':
     ax.set_xticks(x)
     ax.set_yticks([2,4,6,8])
     plt.savefig('fig8-b.png', bbox_inches='tight')
+    print('\nFigures saved to "fig8-a.png" and "fig8-b.png".')

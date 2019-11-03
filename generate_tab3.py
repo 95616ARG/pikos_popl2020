@@ -34,3 +34,4 @@ if __name__ == '__main__':
     dfs = dfs.round(2)
     dfs.to_csv('tab3-ikos.csv', index=False)
     print(dfs)
+    print('\nTable entries saved in "tab3-speedup.csv" and "tab3-ikos.csv".')

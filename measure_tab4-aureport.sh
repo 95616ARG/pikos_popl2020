@@ -5,6 +5,7 @@ export LD_PRELOAD="/usr/local/lib/libtcmalloc.so"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 export PATH="$SCRIPT_DIR/build/run/bin:$PATH"
 
+echo Running IKOS...
 read IKOS_EC IKOS_T <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_ikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
@@ -14,6 +15,7 @@ then
   exit $IKOS_EC
 fi
 
+echo Running PIKOS\<4\>...
 read PIKOS_EC4 PIKOS_T4 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=4 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
@@ -23,6 +25,7 @@ then
   exit $PIKOS_EC4
 fi
 
+echo Running PIKOS\<8\>...
 read PIKOS_EC8 PIKOS_T8 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=8 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
@@ -32,6 +35,7 @@ then
   exit $PIKOS_EC8
 fi
 
+echo Running PIKOS\<12\>...
 read PIKOS_EC12 PIKOS_T12 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=12 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 
@@ -41,6 +45,7 @@ then
   exit $PIKOS_EC12
 fi
 
+echo Running PIKOS\<16\>...
 read PIKOS_EC16 PIKOS_T16 <<< $(runexec --quiet --no-container --walltimelimit=14400 --output=/dev/null -- ./run_pikos.sh --rm-db -q -w --display-times=no --display-summary=no --progress=no --inline-all --no-checks --no-fixpoint-cache --proc=inter -nt=16 $SCRIPT_DIR/benchmarks/OSS/audit-2.8.4/aureport.bc \
   | awk -F= '/exitcode|walltime/ {print $2}')
 

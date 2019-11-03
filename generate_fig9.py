@@ -38,8 +38,9 @@ if __name__ == '__main__':
     lst = (df.tail(1).append(df[tmp:tmp+1])).append(df[0:1])
     marker = ['+', 'x', '.']
     cnt = 0
+    print('Benchmarks used in fig9-a:')
     for i, r in lst.iterrows():
-        print(r['benchmark'])
+        print(' - ', r['benchmark'])
         x = np.array([2,4,6,8])
         slope, intercept, _,_,_ =scipy.stats.linregress([2,4,6,8], r[['speedup-2', 'speedup-4', 'speedup-6' ,'speedup-8']].astype(float))
         plt.scatter([2,4,6,8], r[['speedup-2','speedup-4', 'speedup-6' ,'speedup-8']], label='Scalability coefficient = %.2f' % round(slope,2), marker=marker[cnt])
@@ -81,3 +82,4 @@ if __name__ == '__main__':
     plt.xlabel('Scalability coefficient')
     plt.ylabel('Number of benchmarks')
     plt.savefig('fig9-b.png', bbox_inches='tight')
+    print('\nFigures saved to "fig9-a.png" and "fig9-b.png".')
