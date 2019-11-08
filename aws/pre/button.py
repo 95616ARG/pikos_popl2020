@@ -10,9 +10,10 @@ import sys
 
 ec2 = boto3.client('ec2', region_name='us-west-2')
 
-MIN=0
-MAX=200
-XML=1
+# Run the experiment `xml/exp{XML}.xml` on batch `set{i}.txt` for i in [MIN, MAX).
+MIN=0   # Minimal batch number (xml/set{MIN}.txt).
+MAX=200 # Maximal batch number (xml/set{MAX}.txt). Not included.
+XML=1   # The experiment number (xml/exp{XML}.xml) to run.
 
 def run_instance(instType, amiId, sg, key, iam, udName):
     '''

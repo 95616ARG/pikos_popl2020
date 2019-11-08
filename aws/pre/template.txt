@@ -9,9 +9,12 @@ cd /home/ubuntu
 WHICH_SET=@
 WHAT_XML=&
 
+BUCKETNAME1=s3://ikos
+BUCKETNAME2=s3://results-ikos
+
 # Download the input from S3
-aws s3 cp s3://ikos/xml/set$WHICH_SET.txt aws.set
-aws s3 cp s3://ikos/xml/exp$WHAT_XML.xml bench.xml
+aws s3 cp $BUCKETNAME1/xml/set$WHICH_SET.txt aws.set
+aws s3 cp $BUCKETNAME1/xml/exp$WHAT_XML.xml bench.xml
 
 # Run benchexec
 benchexec --no-container bench.xml
@@ -20,6 +23,6 @@ benchexec --no-container bench.xml
 RESULT=exp$WHAT_XML-set$WHICH_SET
 mkdir tmp
 mv results tmp/$RESULT
-aws s3 cp --recursive tmp s3://results-ikos
+aws s3 cp --recursive tmp $BUCKETNAME2
 
 poweroff
