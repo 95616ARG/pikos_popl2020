@@ -18,14 +18,17 @@ for the permissions.
 
 ## AMI
 
-One needs to create an image with all the dependencies installed.
-It should have `pikos` installed also.
-One can do these by following the steps in [Install Dependencies](../README.md#Install-Dependencies).
+The image `pikos-popl2020` mentioned in `../README.md` **cannot** be used
+for this scripts.
+Use the image `pikos-aws`, whose AMI-id is `ami-01f8031a36fcb210d`.
+To create this image, follow the steps in [Install Dependencies](../README.md#Install-Dependencies).
+`pikos` should be installed also.
 The scripts assume that `pikos` is in PATH.
 [`../tools/`](../tools) in this repository should be in `/home/ubuntu`.
-Also, a dummy benchmark file should be in `benchmarks/` directory.
+Also, a dummy benchmark file should be in `/home/ubuntu/`.
 It should be either `dummy.bc` or `dummy.c`, and it doesn't have to take longer than 1 seconds.
 The dummy benchmark is just to warm up the EC2 instances.
+SVC and OSS benchmarks should be in `/home/ubuntu/`.
 
 ## S3 Buckets
 

@@ -28,6 +28,7 @@ An AMI is provided for AWS, so the installation may be skipped for it.
 The name of the public AMI is `pikos-popl2020`.
 Its AMI-id is `ami-04c5929ccd4e5b841`.
 Username for connecting this image is `ubuntu`.
+**This image is NOT meant to be used for the scripts in `aws/`**.
 
 ### Docker
 
