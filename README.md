@@ -407,3 +407,10 @@ One has to run PIKOS<12> and PIKOS<16> on these benchmarks additionally to compl
 ```
 $ ./generate_tab4.py ./results-paper/all.csv
 ```
+## People
+- [Aditya V. Thakur](https://thakur.cs.ucdavis.edu/) can be reached at
+  [avthakur@ucdavis.edu](mailto:avthakur@ucdavis.edu).
+- Arnaud J. Venet can be reached at
+  [ajv@fb.com](mailto:ajv@fb.com).
+- [Sung Kook Kim](https://skkeem.github.io/) can be reached at
+  [sklkim@ucdavis.edu](mailto:sklkim@ucdavis.edu).
