@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3
 import subprocess
 import time
 import os
@@ -18,67 +18,84 @@ if __name__ == '__main__':
     mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']
     mpl.rcParams['font.size'] = 17.0
     mpl.rcParams['axes.labelsize'] = 20.0
-    mpl.rcParams['ytick.labelsize'] = 20.0
-    mpl.rcParams['xtick.labelsize'] = 20.0
+    mpl.rcParams['ytick.labelsize'] = 15.0
+    mpl.rcParams['xtick.labelsize'] = 15.0
     mpl.rcParams['font.weight'] = 'bold'
-
     df = pd.read_csv(sys.argv[1])
     base = 'walltime (s)'
     ours = 'walltime (s)-4'
     speedup = 'speedup-4'
     df = df[df[base] >= 5]
 
+    total, _ = df.shape
+    above2, _ = df[df[speedup] >= 2].shape
+    above3, _ = df[df[speedup] >= 3].shape
+    print(above2, above2 / total, '%')
+    print(above3, above3 / total , '%')
+
+    q25, q50, q75 = df[base].quantile([0.25, 0.5, 0.75])
+    print("Quartile 1: ", q25)
+    print("Quartile 2: ", q50)
+    print("Quartile 3: ", q75)
+
+    df0 = df[df[base] < q25]
+    print(df0.shape)
     ax = plt.subplot(111)
-    ax.set_xscale('log')
-    ax.set_yscale('log')
+    print(df0.sort_values(by=base).iloc[[0, -1]][[base]])
+    n, bins, patches = ax.hist(df0[speedup].values, bins=12, range=[0.75,3.75], edgecolor='black', alpha=0.8)
+    plt.yticks(list(plt.yticks()[0]) + [1, max(n)])
+    plt.yticks([0, 1, 10, 20, 30, 40, 50, 60, max(n)])
+    plt.grid(b=True, zorder=0, ls='--', alpha=0.3)
+    plt.xlabel(r'Speedup of $\textsc{Pikos\textlangle4\textrangle}$ (higher the better)')
+    plt.ylabel(r'Frequency')
+    plt.text(0.55, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(df0[speedup].max(), 2), round(df0[speedup].min(), 2)),
+    transform=ax.transAxes, verticalalignment='top')
+    plt.savefig('fig7-%d.png' % 0, bbox_inches='tight')
+    plt.clf()
 
-    plt.scatter(df[base].values, df[ours].values, marker='.', alpha=0.8)
+    df1 = df[(q25 <= df[base]) & (df[base] < q50)]
+    print(df1.shape)
+    ax = plt.subplot(111)
+    print(df1.sort_values(by=base).iloc[[0, -1]][[base]])
+    n, bins, patches = ax.hist(df1[speedup].values, bins=12, range=[0.75,3.75], edgecolor='black', alpha=0.8)
+    plt.yticks(list(plt.yticks()[0]) + [1, max(n)])
+    plt.yticks([0, 1, 10, 20, 30, 40, 50, 60, max(n)])
+    plt.grid(b=True, zorder=0, ls='--', alpha=0.3)
+    plt.xlabel(r'Speedup of $\textsc{Pikos\textlangle4\textrangle}$ (higher the better)')
+    plt.ylabel(r'Frequency')
+    plt.text(0.55, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(df1[speedup].max(), 2), round(df1[speedup].min(), 2)),
+    transform=ax.transAxes, verticalalignment='top')
+    plt.savefig('fig7-%d.png' % 1, bbox_inches='tight')
+    plt.clf()
 
-    plt.rc('text', usetex=True)
-    plt.grid(b=True, ls='--', alpha=0.3)
-    plt.xlabel(r'Analysis time of $\textsc{Ikos}$ (seconds)')
-    plt.ylabel(r'Analysis time of $\textsc{Pikos\textlangle4\textrangle}$ (seconds)')
+    df2 = df[(q50 <= df[base]) & (df[base] < q75)]
+    print(df2.shape)
+    ax = plt.subplot(111)
+    print(df2.sort_values(by=base).iloc[[0, -1]][[base]])
+    n, bins, patches = ax.hist(df2[speedup].values, bins=12, range=[0.75,3.75], edgecolor='black', alpha=0.8)
+    plt.yticks(list(plt.yticks()[0]) + [1, max(n)])
+    plt.yticks([0, 1, 10, 20, 30, 40, 50, 60, max(n)])
+    plt.grid(b=True, zorder=0, ls='--', alpha=0.3)
+    plt.xlabel(r'Speedup of $\textsc{Pikos\textlangle4\textrangle}$ (higher the better)')
+    plt.ylabel(r'Frequency')
+    plt.text(0.05, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(df2[speedup].max(), 2), round(df2[speedup].min(), 2)),
+    transform=ax.transAxes, verticalalignment='top')
+    plt.savefig('fig7-%d.png' % 2, bbox_inches='tight')
+    plt.clf()
 
-    mins = df.loc[df[speedup].idxmin()]
-    maxs = df.loc[df[speedup].idxmax()]
-    plt.annotate("Minimum speedup = %.2fx" % round(mins[speedup], 2),
-            xy=(mins[base],mins[ours]),
-            xytext=(0.55, 0.6),
-            textcoords='axes fraction', arrowprops=dict(facecolor='black', shrink=0.05), horizontalalignment='right', verticalalignment='bottom')
+    df3 = df[q75 <= df[base]]
+    print(df3.shape)
+    ax = plt.subplot(111)
+    print(df3.sort_values(by=base).iloc[[0, -1]][[base]])
+    n, bins, patches = ax.hist(df3[speedup].values, bins=12, range=[0.75,3.75], edgecolor='black', alpha=0.8)
+    plt.yticks(list(plt.yticks()[0]) + [1, max(n)])
+    plt.yticks([0, 1, 10, 20, 30, 40, 50, 60, max(n)])
+    plt.grid(b=True, zorder=0, ls='--', alpha=0.3)
+    plt.xlabel(r'Speedup of $\textsc{Pikos\textlangle4\textrangle}$ (higher the better)')
+    plt.ylabel(r'Frequency')
+    plt.text(0.05, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(df3[speedup].max(), 2), round(df3[speedup].min(), 2)),
+    transform=ax.transAxes, verticalalignment='top')
+    plt.savefig('fig7-%d.png' % 3, bbox_inches='tight')
+    plt.clf()
 
-    plt.annotate("Maximum speedup = %.2fx" % round(maxs[speedup], 2),
-            xy=(maxs[base],maxs[ours]),
-            xytext=(0.98, 0.08),
-            textcoords='axes fraction', arrowprops=dict(facecolor='black', shrink=0.05), horizontalalignment='right', verticalalignment='bottom')
-
-    mx = max(df[base].max(), df[ours].max()) + 1000
-    mn = 1
-
-    plt.xlim(mn, mx)
-    plt.ylim(mn, mx)
-
-    lims = [mn,mx]
-    lims2 = [mn/2.0,mx/2.0]
-    lims4 = [mn/4.0,mx/4.0]
-
-    ax.plot(lims, lims, 'k-', alpha=1, zorder=0, label="1.00x speedup")
-    ax.plot(lims, lims2, 'k-.', alpha=1, zorder=0, label="2.00x speedup")
-    ax.plot(lims, lims4, 'k:', alpha=1, zorder=0, label="4.00x speedup")
-
-    plt.legend()
-
-    phm = scipy.stats.hmean(df[speedup].values)
-    pgm = scipy.stats.mstats.gmean(df[speedup].values)
-    print('Harmonic mean: ', phm)
-    print('Geometric mean: ', pgm)
-    print('Arithmetic mean: ', df[speedup].mean())
-
-    r, c = df.shape
-    df = df.sort_values(by=base, ascending=False)[0:r//4]
-    phmq = scipy.stats.hmean(df[speedup].values)
-    pgmq = scipy.stats.mstats.gmean(df[speedup].values)
-    print('Harmonic mean (top 25%): ', phmq)
-    print('Geometric mean (top 25%): ', pgmq)
-    print('Arithmetic mean (top 25%): ', df[speedup].mean())
-    plt.savefig('fig6.png', bbox_inches='tight')
-    print('\nFigure saved to "fig6.png".')
+    print('Figures saved to "fig7-[0~3].png".')

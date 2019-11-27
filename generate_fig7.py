@@ -1,59 +1,74 @@
 #!/usr/bin/env python3.6
-import subprocess
-import time
-import os
-import glob
-import pandas as pd
-import datetime
-import math
+
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-import sys
 import numpy as np
+import pandas as pd
 import scipy.stats
 import scipy.stats.mstats
+import sys
 
 if __name__ == '__main__':
     mpl.rcParams['text.usetex'] = True
     mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']
-    mpl.rcParams['font.size'] = 17.0
-    mpl.rcParams['axes.labelsize'] = 20.0
-    mpl.rcParams['ytick.labelsize'] = 15.0
-    mpl.rcParams['xtick.labelsize'] = 15.0
-    mpl.rcParams['font.weight'] = 'bold'
+    mpl.rcParams['font.size'] = 15.0
+    mpl.rcParams['axes.labelsize'] = 17.0
+    mpl.rcParams['ytick.labelsize'] = 17.0
+    mpl.rcParams['xtick.labelsize'] = 17.0
     df = pd.read_csv(sys.argv[1])
-    base = 'walltime (s)'
-    ours = 'walltime (s)-4'
-    speedup = 'speedup-4'
-    df = df[df[base] >= 5]
-    df = df.sort_values(by=base)
-    r, c = df.shape
-    d = r // 4
+    df = df[df['walltime (s)'] >= 5]
 
-    for i in range(4):
-        dff = None
-        if i == 3:
-            dff = df[d*3:]
-        else:
-            dff = df[d*i:d*(i+1)]
-        ax = plt.subplot(111)
+    bsum = df['walltime (s)'].sum()
+
+    cc2sum = df['walltime (s)-2'].sum()
+    cc2speedup = df['speedup-2']
+
+    cc4sum = df['walltime (s)-4'].sum()
+    cc4speedup = df['speedup-4']
+
+    cc6sum = df['walltime (s)-6'].sum()
+    cc6speedup = df['speedup-6']
+
+    cc8sum = df['walltime (s)-8'].sum()
+    cc8speedup = df['speedup-8']
+
+    speedups = [cc2speedup.values, cc4speedup.values, cc6speedup.values, cc8speedup.values] 
+    labels = ['NT=2', 'NT=4', 'NT=6', 'NT=8']
+    hmean = list(map(lambda x: scipy.stats.hmean(x), speedups))
+    gmean = list(map(lambda x: scipy.stats.mstats.gmean(x), speedups))
+    amean = list(map(lambda x: sum(x) / len(x), speedups))
+    x = [2,4,6,8]
+
+    print("Arithematic means of PIKOS<k> (k = 2, 4, 6, 8): ")
+    print(amean)
+    print("Geomentric means of PIKOS<k> (k = 2, 4, 6, 8): ")
+    print(gmean)
+    print("Harmonic means of PIKOS<k> (k = 2, 4, 6, 8): ")
+    print(hmean)
     
-        n, bins, patches = ax.hist(dff[speedup].values, bins=12, range=[0.75,3.75], edgecolor='black', alpha=0.8)
-        plt.yticks(list(plt.yticks()[0]) + [1, max(n)])
-        plt.yticks([0, 1, 10, 20, 30, 40, 50, 60, max(n)])
-    
-        plt.grid(b=True, zorder=0, ls='--', alpha=0.3)
-        plt.xlabel(r'Speedup of $\textsc{Pikos\textlangle4\textrangle}$ (higher the better)')
-        plt.ylabel(r'Frequency')
-    
-    
-        if i > 1:
-            plt.text(0.05, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(dff[speedup].max(), 2), round(dff[speedup].min(), 2)),
-                    transform=ax.transAxes, verticalalignment='top')
-        else:
-            plt.text(0.55, 0.95, "Max. speedup = %.2fx\nMin. speedup = %.2fx" % (round(dff[speedup].max(), 2), round(dff[speedup].min(), 2)),
-                    transform=ax.transAxes, verticalalignment='top')
-    
-        plt.savefig('fig7-%d.png' % i, bbox_inches='tight')
-        plt.clf()
-    print('Figures saved to "fig7-[0~3].png".')
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(5, 4), sharey=True)
+    ax.set_xlabel('Number of threads $k$')
+    ax.set_ylabel(r'Observed speedups of \textsc{Pikos}\textlangle{}$k$\textrangle{}')
+    ax.grid(b=True, ls='--', alpha=0.5)
+    ax.boxplot(speedups, positions=x, sym='k.')
+    ax.scatter(x, amean, marker='.',  c='r', zorder=1000, label="Arithmetic mean")
+    ax.scatter(x, gmean, marker='*',  c='g', zorder=1000, label="Geometric mean")
+    ax.scatter(x, hmean, marker='x',  c='b', zorder=1000, label="Harmonic mean")
+    ax.legend(loc='upper left')
+    ax.set_xticks(x)
+    ax.set_yticks([2,4,6,8])
+    plt.savefig('fig7-a.png', bbox_inches='tight')
+
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(5, 4), sharey=True)
+    ax.set_xlabel('Number of threads $k$')
+    ax.set_ylabel(r'Observed speedups of \textsc{Pikos}\textlangle{}$k$\textrangle{}')
+    ax.grid(b=True, ls='--', alpha=0.5)
+    ax.violinplot(speedups, positions=x, showextrema=True, showmeans=False, showmedians=False, widths=0.8, points=1000)
+    ax.scatter(x, amean, marker='.',  c='r', zorder=1000, label="Arithmetic mean")
+    ax.scatter(x, gmean, marker='*',  c='g', zorder=1000, label="Geometric mean")
+    ax.scatter(x, hmean, marker='x',  c='b', zorder=1000, label="Harmonic mean")
+    ax.legend(loc='upper left')
+    ax.set_xticks(x)
+    ax.set_yticks([2,4,6,8])
+    plt.savefig('fig7-b.png', bbox_inches='tight')
+    print('\nFigures saved to "fig7-a.png" and "fig7-b.png".')

@@ -27,6 +27,6 @@
     </tasks>
     <tasks>
       <option name="-cs">0</option>
-      <includesfile>../benchmarks/tab3-1.set</includesfile>
+      <includesfile>../benchmarks/tab2a.set</includesfile>
     </tasks>
 </benchmark>

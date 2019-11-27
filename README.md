@@ -318,25 +318,25 @@ $ ./reproduce_rq1-4.sh
 #### Reproduce tab3
 
 It runs IKOS and PIKOS<4> on benchmarks in table 3.
-It outputs `tab3.csv`.
-This can be used to generate table 3.
+It outputs `tab2.csv`.
+This can be used to generate table 2.
 This takes roughly 36 hours, if using only a single machine.
 
 ```
-$ ./reproduce_tab3-4.sh
+$ ./reproduce_tab2-4.sh
 ```
 
-Alternatively, one can choose to run only the upper part of table 3.
-It outputs `tab3-1.csv`.
+Alternatively, one can choose to run only the upper part of table 2.
+It outputs `tab2a.csv`.
 This takes roughly 8 hours, if using only a single machine.
 
 ```
-$ ./reproduce_tab3-1-4.sh
+$ ./reproduce_tab2a-4.sh
 ```
 
 The following command measures the speedup for the benchmark with highest
 speedup in PIKOS<4>.
-The result for this benchmark can be found in the first entry of the table 3.
+The result for this benchmark can be found in the first entry of the table 2.
 
 ```
 $ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.8.4/aureport.bc
@@ -345,23 +345,23 @@ $ ./measure_speedup.sh -nt=4 ./benchmarks/OSS/audit-2.8.4/aureport.bc
 >>> Speedup (running time of IKOS / running time of PIKOS) = 3.63x.
 ```
 
-#### Reproduce tab4
+#### Reproduce tab3
 
-It runs IKOS, PIKOS<4>, PIKOS<8>, PIKOS<12>, and PIKOS<16> on benchmarks in table 4.
-It outputs `tab4.csv`.
-This can be used to generate table 4.
+It runs IKOS, PIKOS<4>, PIKOS<8>, PIKOS<12>, and PIKOS<16> on benchmarks in table 3.
+It outputs `tab3.csv`.
+This can be used to generate table 3.
 This takes roughly 12 hours, if using only a single machine.
 
 ```
-$ ./reproduce_tab4-16.sh
+$ ./reproduce_tab3-16.sh
 ```
 
 The following command measures the speedups for the benchmark with highest
 scalability, `./benchmarks/OSS/audit-2.8.4/aureport.bc/`.
-The result for this benchmark can be found in the first entry of the table 4.
+The result for this benchmark can be found in the first entry of the table 3.
 
 ```
-$ ./measure_tab4-aureport.sh
+$ ./measure_tab3-aureport.sh
 >>> Running time of IKOS  = 684.19316 seconds.
 >>> Running time of PIKOS<4> = 188.25443 seconds.
 >>> Speedup (running time of IKOS / running time of PIKOS<4>) = 3.63x.
@@ -379,13 +379,24 @@ The csv file produced above can be used to generate tables and figures in the pa
 We will demonstrate with the data obtained by the authors in `./results-paper/all.csv`,
 which can be reproduced by using the script described in [Reproduce all](#Reproduce-all).
 
-#### Fig. 6
+#### Fig. 5
 
-The script `generate_fig6.py` generates the scatter plot in Fig. 6.
+The script `generate_fig5.py` generates the scatter plot in Fig. 5.
 It also outputs the means described in the evaluation section.
 It requires the columns `walltime (s)`, `walltime (s)-4`, and `speedup-4` in
 the csv file.
-It outputs `fig6.png`.
+It outputs `fig5.png`.
+
+```
+$ ./generate_fig5.py ./results-paper/all.csv
+```
+
+#### Fig. 6
+
+The script `generate_fig6.py` generates the histograms in Fig. 6.
+It requires the columns `walltime (s)`, `walltime (s)-4`, and `speedup-4` in
+the csv file.
+It outputs 4 subfigures, `fig6-[0~3].png`.
 
 ```
 $ ./generate_fig6.py ./results-paper/all.csv
@@ -393,55 +404,45 @@ $ ./generate_fig6.py ./results-paper/all.csv
 
 #### Fig. 7
 
-The script `generate_fig7.py` generates the histograms in Fig. 7.
-It requires the columns `walltime (s)`, `walltime (s)-4`, and `speedup-4` in
-the csv file.
-It outputs 4 subfigures, `fig7-[0~3].png`.
+The script `generate_fig9.py` generates box plot and violin plot in Fig. 7.
+It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
+It outputs `fig7-a.png` and `fig7-b.png`.
 
 ```
 $ ./generate_fig7.py ./results-paper/all.csv
 ```
-
 #### Fig. 8
 
-The script `generate_fig9.py` generates box plot and violin plot in Fig. 8.
+The script `generate_fig8.py` generates scalability coefficent plot in Fig. 8.
 It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
 It outputs `fig8-a.png` and `fig8-b.png`.
 
 ```
 $ ./generate_fig8.py ./results-paper/all.csv
 ```
-#### Fig. 9
 
-The script `generate_fig9.py` generates scalability coefficent plot in Fig. 9.
-It requires the columns `walltime (s)`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
-It outputs `fig9-a.png` and `fig9-b.png`.
+#### Table 2
+
+The script `generate_tab3.py` generates the entries for the table 2.
+It requires the columns `benchmark`, `category`, `walltime (s)`, `walltime (s)-4`,
+and `speedup-4` in the csv file.
+It outputs `tab2-speedup.csv` and `tab2-ikos.csv`, which are used to fill table 2.
 
 ```
-$ ./generate_fig9.py ./results-paper/all.csv
+$ ./generate_tab2.py ./results-paper/all.csv
 ```
 
 #### Table 3
-
-The script `generate_tab3.py` generates the entries for the table 3.
-It requires the columns `benchmark`, `category`, `walltime (s)`, `walltime (s)-4`,
-and `speedup-4` in the csv file.
-It outputs `tab3-speedup.csv` and `tab3-ikos.csv`, which are used to fill table 3.
+The script `generate_tab4.py` chooses the benchmarks for table 3 based on the
+scalability coefficient.
+It requires the columns `benchmark`, `category`, `cs`, `walltime (s)`, `walltime (s)-4`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
+It outputs `tab3-candidates.csv`.
+One has to run PIKOS<12> and PIKOS<16> on these benchmarks additionally to complete the table 3.
 
 ```
 $ ./generate_tab3.py ./results-paper/all.csv
 ```
 
-#### Table 4
-The script `generate_tab4.py` chooses the benchmarks for table 4 based on the
-scalability coefficient.
-It requires the columns `benchmark`, `category`, `cs`, `walltime (s)`, `walltime (s)-4`, `speedup-2`, `speedup-4`, `speedup-6`, and `speedup-8` in the csv file.
-It outputs `tab4-candidates.csv`.
-One has to run PIKOS<12> and PIKOS<16> on these benchmarks additionally to complete the table.
-
-```
-$ ./generate_tab4.py ./results-paper/all.csv
-```
 ## People
 - [Aditya V. Thakur](https://thakur.cs.ucdavis.edu/) can be reached at
   [avthakur@ucdavis.edu](mailto:avthakur@ucdavis.edu).

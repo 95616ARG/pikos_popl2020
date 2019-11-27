@@ -7,10 +7,10 @@ export PATH="$SCRIPT_DIR/build/run/bin:$PATH"
 export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
 
 RES=results$(date +%m-%d-%H-%M)/
-benchexec --no-container -o $RES ./xml/tab3-1.xml
+benchexec --no-container -o $RES ./xml/tab2.xml
 table-generator $RES/*base.xml.bz2 $RES/*cc4.xml.bz2 -o . -f csv -n tmp
 tail -n +4 tmp.table.csv > tmp.csv
 sed -i '1 i\benchmark,status,cputime (s),walltime (s),memUsage,status-4,cputime (s)-4,walltime (s)-4,memUsage-4' tmp.csv
 sed -i 's/\t/,/g' tmp.csv
-$SCRIPT_DIR/update_speedup.py 4 tab3-1
+$SCRIPT_DIR/update_speedup.py 4 tab2
 rm tmp.table.csv
