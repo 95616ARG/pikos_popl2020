@@ -2,6 +2,41 @@
 
 This is the software artifact that accompanies the paper "Deterministic Parallel Fixpoint Computation" by Sung Kook Kim, Arnaud J. Venet, and Aditya V. Thakur.
 
+
+**"Deterministic Parallel Fixpoint Computation"**
+Preprint: [http://arxiv.org/abs/1909.05951](http://arxiv.org/abs/1909.05951).
+```
+@article{DBLP:conf/popl/KimVT20,                                                     
+  author    = {Sung Kook Kim and                                            
+               Arnaud J. Venet and                                                   
+               Aditya V. Thakur},                                                    
+  title     = {Deterministic Parallel Fixpoint Computation},                         
+  journal   = {{PACMPL}},                                                            
+  volume    = {4},                                                                   
+  number    = {{POPL}},                                                              
+  pages     = {14:1--14:33},                                                         
+  year      = {2020},                                                                
+  note      = {To appear},                                                           
+  url       = {https://doi.org/10.1145/3371082},                                     
+  doi       = {10.1145/3371082},                                                     
+}
+```
+
+```
+@article{DBLP:journals/corr/abs-1909-05951,
+  author    = {Sung Kook Kim and
+               Arnaud J. Venet and
+               Aditya V. Thakur},
+  title     = {Deterministic Parallel Fixpoint Computation},
+  journal   = {CoRR},
+  volume    = {abs/1909.05951},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1909.05951},
+  archivePrefix = {arXiv},
+  eprint    = {1909.05951},
+}
+```
+
 It mainly consists of our parallel abstract interpreter PIKOS, 4330 benchmarks used in the experiments, and scripts to reproduce the results in the paper.
 
 PIKOS is based on a sequential abstract interpreter, [IKOS](https://github.com/NASA-SW-VnV/ikos).
