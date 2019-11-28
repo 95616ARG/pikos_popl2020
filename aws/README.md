@@ -155,24 +155,24 @@ You need to be able to run **200** c5.2xlarge instances in your account.
 $ ./run_instances.py b24 ami-01f8031a36fcb210d your-security-group-id your-key-name your-iam-role-name your-BUCKET1-name your-BUCKET2-name
 ```
 
-After they are finished, run Pikos<6> and Pikos<8> in c5.4xlarge.
+After all instances finish, run Pikos<6> and Pikos<8> in c5.4xlarge.
 You need to be able to run **200** c5.4xlarge instances in your account.
 ```
 $ ./run_instances.py 68 ami-01f8031a36fcb210d your-security-group-id your-key-name your-iam-role-name your-BUCKET1-name your-BUCKET2-name
 ```
 
-Finally, after they are finished, run Pikos<12> and Pikos<16> in c5.9xlarge.
+After all instances finish, run Pikos<12> and Pikos<16> in c5.9xlarge.
 You need to be able to run **5** c5.9xlarge instances in your account.
 ```
 $ ./run_instances.py 1216 ami-01f8031a36fcb210d your-security-group-id your-key-name your-iam-role-name your-BUCKET1-name your-BUCKET2-name
 ```
 
-4. Run `download_from_s3.sh` to download the results from BUCKET2 to `./results-ikos`.
+3. Run `download_from_s3.sh` to download the results from BUCKET2 to `./results-ikos`.
 ```
 $ ./download_from_s3.sh your-BUCKET2-name
 ```
 
-5. Run `merge_csv.py` to generate the merged table (`b24.csv`, `68.csv`, `1216.csv`).
+4. Run `merge_csv.py` to generate the merged table (`b24.csv`, `68.csv`, `1216.csv`).
 ```
 $ ./merge_csv.py
 ```
