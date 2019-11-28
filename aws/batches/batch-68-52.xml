@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/socat-1.7.3.2/procan.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/socat-1.7.3.2/socat.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/spectrwm-3.2.0/spectrwm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>OSS/splint-3.1.2.git20180129/splint.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sshguard-2.3.1/sshg-blocker.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sshguard-2.3.1/sshg-fw-hosts.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sshguard-2.3.1/sshg-parser.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sslh-1.20/sslh-fork.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sslh-1.20/sslh-select.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sslh-1.20/systemd-sslh-generator.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/stalonetray-0.8.3/stalonetray.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sthttpd-2.27.1/makeweb.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sthttpd-2.27.1/thttpd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/stlink-1.5.1/st-flash.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/stlink-1.5.1/st-info.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/stlink-1.5.1/stlink-gui.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/stlink-1.5.1/st-util.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>OSS/strace-5.0/strace.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/stubby-0.2.6/stubby.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>OSS/stunnel-5.50/stunnel.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sweep-0.9.3/sweep.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/sxhkd-0.6.0/sxhkd.bc</include>
+    </tasks>
+</benchmark>

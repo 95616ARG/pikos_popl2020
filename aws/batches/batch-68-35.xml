@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxdm-0.5.3/lxdm-session.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxclipboard.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxpolkit.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsession.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsession-db.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsession-default-apps.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsession-edit.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsession-logout.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsession-xdg-autostart.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsession-0.5.4/lxsettings-daemon.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/lxsplit-0.2.4/lxsplit.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>OSS/lz4-1.9.0/lz4.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/macchanger-1.7.0/macchanger.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/mairix-0.24/mairix.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/marco-1.22.0/marco.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/marco-1.22.0/marco-message.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/marco-1.22.0/marco-theme-viewer.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/marco-1.22.0/marco-window-demo.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>OSS/mathomatic-16.0.5/mathomatic.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/mathomatic-16.0.5/matho-pascal.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/mathomatic-16.0.5/matho-primes.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/mathomatic-16.0.5/matho-sumsq.bc</include>
+    </tasks>
+</benchmark>

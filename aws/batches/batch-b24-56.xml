@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>OSS/udns-0.4/dnsget.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>OSS/udns-0.4/ex-rdns.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">6</option>
+      <include>OSS/udns-0.4/rblcheck.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/uget-2.2.1/uget-gtk-1to2.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/uget-2.2.1/uget-gtk.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unbound-1.9.1/unbound-anchor.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>OSS/unbound-1.9.1/unbound.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>OSS/unbound-1.9.1/unbound-checkconf.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unbound-1.9.1/unbound-control.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unbound-1.9.1/unbound-host.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unhide-20130526/unhide-linux.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unhide-20130526/unhide-posix.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unhide-20130526/unhide_rb.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unhide-20130526/unhide-tcp.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unifdef-2.11/unifdef.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/units-2.18/units.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unpaper-6.1/unpaper.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unrtf-0.21.10/unrtf.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/unshield-1.4.3/unshield.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/usb_modeswitch-2.5.2/usb_modeswitch.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/uucp-1.07/cu.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/uucp-1.07/uuchk.bc</include>
+    </tasks>
+</benchmark>

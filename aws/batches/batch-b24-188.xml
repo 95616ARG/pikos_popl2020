@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/aiob_4.c.v+lh-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/aiob_4.c.v+nlh-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/mod3.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/mod3.c.v+cfa-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/mod3.c.v+lhb-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/mod3.c.v+sep-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-industry-pattern/nested-3.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/bin-suffix-5.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/const.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/eq1.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/eq2.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/even.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/mod4.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invariants/odd.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/apache-escape-absolute.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/apache-escape-absolute.i.v+cfa-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/apache-get-tag.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/apache-get-tag.i.p+lhb-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/apache-get-tag.i.v+lhb-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/apache-get-tag.i.v+nlh-reducer.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/down.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/loop-invgen/fragtest_simple.c</include>
+    </tasks>
+</benchmark>

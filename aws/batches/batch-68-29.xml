@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jack2-1.9.12/jack_simple_session_client.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jack2-1.9.12/jack_thru.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jack2-1.9.12/jack_transport.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jack2-1.9.12/jack_unload.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jack2-1.9.12/jack_wait.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jack2-1.9.12/jack_zombie.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jalv-1.6.0/jalv.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jalv-1.6.0/jalv.gtk3.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jalv-1.6.0/jalv.gtk.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jalv-1.6.0/jalv.gtkmm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jalv-1.6.0/jalv.qt5.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jfsutils-1.1.15/jfs_debugfs.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jfsutils-1.1.15/jfs_fsck.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jfsutils-1.1.15/jfs_fscklog.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jfsutils-1.1.15/jfs_logdump.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jfsutils-1.1.15/jfs_mkfs.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jfsutils-1.1.15/jfs_tune.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jgmenu-2.2/jgmenu-greeneye.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jgmenu-2.2/jgmenu-i18n.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jgmenu-2.2/jgmenu-lx.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jgmenu-2.2/jgmenu-ob.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/jgmenu-2.2/jgmenu-obtheme.bc</include>
+    </tasks>
+</benchmark>

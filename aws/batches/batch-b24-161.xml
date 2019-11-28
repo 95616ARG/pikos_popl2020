@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--infiniband--ulp--srp--ib_srp.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--input--misc--ims-pcu.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--input--touchscreen--elants_i2c.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--input--touchscreen--usbtouchscreen.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--md--raid456.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--dvb-core--dvb-core.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--rc--lirc_dev.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--dvb-usb-v2--dvb-usb-mxl111sf.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--gspca--gspca_main.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--ttusb-budget--dvb-ttusb-budget.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--uvc--uvcvideo.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--memstick--core--ms_block.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--memstick--core--mspro_block.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--misc--mic--host--mic_host.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--misc--sgi-gru--gru.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mmc--card--mmc_test.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mtd--devices--docg3.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mtd--ubi--ubi.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--can--janz-ican3.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--8390--pcnet_cs.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--amd--amd8111e.ko.cil.c</include>
+    </tasks>
+</benchmark>

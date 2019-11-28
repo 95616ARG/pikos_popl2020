@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/expand.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">16</option>
+      <include>OSS/coreutils-8.31/expr.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/factor.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/false.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/fmt.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/fold.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/head.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/hostid.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/id.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/join.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/link.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/ln.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/logname.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/ls.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/md5sum.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/mkdir.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/mkfifo.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/mknod.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/mktemp.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/mv.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/nice.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/coreutils-8.31/nl.bc</include>
+    </tasks>
+</benchmark>

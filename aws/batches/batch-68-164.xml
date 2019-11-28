@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--video--fbdev--s3fb.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--vme--bridges--vme_ca91cx42.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--xen--xen-pciback--xen-pciback.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---fs--ncpfs--ncpfs.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---fs--nfs--nfsv2.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---fs--squashfs--squashfs.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---kernel--locking--locktorture.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---net--netfilter--nfnetlink_log.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---net--netfilter--nf_tables.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---net--rose--rose.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---sound--core--seq--oss--snd-seq-oss.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---sound--drivers--vx--snd-vx-lib.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---sound--pci--ice1712--snd-ice1724.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">21</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--ata--libata.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--atm--atmtcp.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--block--loop.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--char--agp--amd64-agp.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--char--ipmi--ipmi_msghandler.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--char--raw.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--crypto--qat--qat_common--intel_qat.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--gpu--drm--amd--amdgpu--amdgpu.ko-entry_point.cil.out.c</include>
+    </tasks>
+</benchmark>

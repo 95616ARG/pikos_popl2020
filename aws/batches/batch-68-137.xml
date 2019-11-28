@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--hwmon--max1111.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--hwmon--pmbus--max16064.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--hwmon--pmbus--max8688.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--hwmon--smsc47b397.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--i2c--algos--i2c-algo-pca.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--i2c--busses--i2c-diolan-u2c.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--i2c--busses--i2c-stub.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--i2c--busses--i2c-tiny-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--i2c--i2c-smbus.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--ide--ide-pnp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--gameport--lightning.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--magellan.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--spaceball.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--spaceorb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--stinger.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--turbografx.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--twidjoy.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--warrior.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--joystick--zhenhua.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--keyboard--gpio_keys_polled.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--input--keyboard--newtonkbd.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+</benchmark>

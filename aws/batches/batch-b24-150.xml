@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--ubi--gluebi.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--arc-rawmode.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--arc-rimi.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--com20020_cs.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--com20020.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--com90io.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--com90xx.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--rfc1051.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--arcnet--rfc1201.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--act200l-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--esi-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--girbil-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--litelink-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--ma600-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--mcp2120-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--old_belkin-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--irda--tekram-sir.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--phy--amd.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--phy--broadcom.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--phy--cicada.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--phy--davicom.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--net--phy--et1011c.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+</benchmark>

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--ceph--ceph.ko-ldv_main11_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--ceph--ceph.ko-ldv_main7_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--ecryptfs--ecryptfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--ecryptfs--ecryptfs.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--hfs--hfs.ko-ldv_main6_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--nfs--nfsv4.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--ubifs--ubifs.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-fs--ubifs--ubifs.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-kernel--rcutorture.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main10_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-sound--core--oss--snd-mixer-oss.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-sound--core--seq--snd-seq.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-sound--core--snd-rawmidi.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--ata--pata_legacy.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--block--cciss.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--block--cpqarray.ko-main.cil.out.c</include>
+    </tasks>
+</benchmark>

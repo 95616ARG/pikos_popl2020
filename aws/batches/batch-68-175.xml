@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--snic--snic.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--st.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--lustre--lnet--lnet--lnet.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--lustre--lnet--selftest--lnet_selftest.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--lustre--lustre--mdc--mdc.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">32</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--rtl8723au--r8723au.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">23</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--rts5208--rts5208.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--staging--unisys--visorbus--visorbus.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--target_core_mod.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--thunderbolt--thunderbolt.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--class--cdc-wdm.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--dwc2--dwc2.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--gadget--libcomposite.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--gadget--udc--gr_udc.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--host--fotg210-hcd.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--host--oxu210hp-hcd.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--host--r8a66597-hcd.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--host--xhci-hcd.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--misc--ftdi-elan.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--usb--serial--usbserial.ko-entry_point.cil.out.c</include>
+    </tasks>
+</benchmark>

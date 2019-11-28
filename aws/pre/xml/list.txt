@@ -1,2 +1,0 @@
-bitcode-files/abduco-0.6/abduco.bc
-sv-benchmarks/ssh-simplified/s3_srvr_8.cil.c

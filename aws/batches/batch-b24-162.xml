@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--atheros--alx--alx.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--atheros--atl1e--atl1e.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--broadcom--tg3.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--cisco--enic--enic.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--dec--tulip--dmfe.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--ethoc.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--icplus--ipg.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--igbvf--igbvf.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--qlogic--netxen--netxen_nic.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--qlogic--qlge--qlge.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--smsc--smc91c92_cs.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--team--team.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--usb--kaweth.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--wireless--ath--ar5523--ar5523.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--wireless--rtl818x--rtl8180--rtl818x_pci.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--wireless--rtlwifi--rtl8192de--rtl8192de.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--nfc--port100.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--aacraid--aacraid.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--advansys.ko.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.c</include>
+    </tasks>
+</benchmark>

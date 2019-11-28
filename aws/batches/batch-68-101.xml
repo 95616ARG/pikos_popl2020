@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-dvb-usb-dvb-usb-dib0700.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-dvb-usb-v2-dvb-usb-mxl111sf.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-gspca-gspca_ov519.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-gspca-gspca_xirlink_cit.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-3com-3c59x.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-atheros-atl1c-atl1c.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-broadcom-bnx2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-cisco-enic-enic.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-dec-tulip-tulip.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-emulex-benet-be2net.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-ixgbevf-ixgbevf.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-jme.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-marvell-skge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-marvell-sky2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-natsemi-natsemi.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-qlge-qlge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-realtek-r8169.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-renesas-sh_eth.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.c</include>
+    </tasks>
+</benchmark>

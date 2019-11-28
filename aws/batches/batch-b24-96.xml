@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-saa7134-saa7134.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-saa7164-saa7164.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-platform-vsp1-vsp1.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-radio-radio-wl1273.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-radio-wl128x-fm_drv.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-rc-imon.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-au0828-au0828.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-gspca-gspca_ov519.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-pwc-pwc.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-stk1160-stk1160.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-can-mcp251x.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-broadcom-tg3.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-cisco-enic-enic.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-icplus-ipg.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-intel-e1000-e1000.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-intel-igbvf-igbvf.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-marvell-sky2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-micrel-ks8851.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-qlogic-qlge-qlge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-sun-cassini.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-ethernet-sun-niu.cil.c</include>
+    </tasks>
+</benchmark>

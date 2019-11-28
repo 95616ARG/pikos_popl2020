@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--wireless--rtlwifi--rtl8192se--rtl8192se.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--wireless--rtlwifi--rtl8723ae--rtl8723ae.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--wireless--rtlwifi--rtl8821ae--rtl8821ae.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--wireless--ti--wl12xx--wl12xx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--net--wireless--zd1211rw--zd1211rw.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--pcmcia--pcmcia.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--pcmcia--pcmcia_rsrc.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--platform--x86--thinkpad_acpi.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--power--bq2415x_charger.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--3w-9xxx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">13</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--aic7xxx--aic79xx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--aic7xxx--aic7xxx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--be2iscsi--be2iscsi.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--bfa--bfa.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--esas2r--esas2r.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--gdth.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--hpsa.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--initio.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--megaraid--megaraid_sas.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--osst.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">8</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--qla2xxx--qla2xxx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--scsi--qla4xxx--qla4xxx.ko-entry_point.cil.out.c</include>
+    </tasks>
+</benchmark>

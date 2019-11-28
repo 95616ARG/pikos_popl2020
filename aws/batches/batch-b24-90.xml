@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--firewire--firedtv.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--pci--cx18--cx18.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--usb--b2c2--b2c2-flexcop-usb.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--usb--cpia2--cpia2.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--usb--dvb-usb-v2--dvb-usb-mxl111sf.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--usb--em28xx--em28xx.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--usb--tm6000--tm6000.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--mfd--sm501.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--misc--pch_phub.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--misc--phantom.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--misc--sgi-xp--xpc.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--ethernet--3com--3c59x.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--ethernet--chelsio--cxgb4--cxgb4.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--ethernet--qlogic--qlge--qlge.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--wireless--hostap--hostap.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--wireless--ipw2x00--ipw2200.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--wireless--iwlwifi--iwlwifi.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--net--wireless--rtlwifi--rtl8192de--rtl8192de.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--pcmcia--pcmcia_rsrc.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--platform--x86--ideapad-laptop.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--regulator--isl6271a-regulator.ko-main.cil.out.c</include>
+    </tasks>
+</benchmark>

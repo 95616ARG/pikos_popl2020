@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--serio--serio_raw.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--touchscreen--tsc2005.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--isdn--i4l--isdn.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--md--dm-cache.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--md--dm-crypt.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--md--dm-raid.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--md--dm-thin-pool.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--md--md-mod.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--md--raid456.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--i2c--cx25840--cx25840.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--pci--cx18--cx18.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--pci--saa7164--saa7164.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--pci--ttpci--dvb-ttpci.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--cpia2--cpia2.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--cx231xx--cx231xx.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--dvb-usb--dvb-usb-opera.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--dvb-usb-v2--dvb-usb-lmedm04.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--dvb-usb-v2--dvb-usb-mxl111sf.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--hdpvr--hdpvr.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--pvrusb2--pvrusb2.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--tm6000--tm6000.ko-entry_point.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--ttusb-budget--dvb-ttusb-budget.ko-entry_point.cil.out.c</include>
+    </tasks>
+</benchmark>

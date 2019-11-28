@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-064368f-1-111_1a-drivers--media--radio--si4713-i2c.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-073676f-1-114_1a-drivers--net--b44.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-1575714-1-150_1a-drivers--net--wireless--b43--b43.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-1b0b0ac-1-108_1a-drivers--net--slip.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-1dfa93a-1-100_1a-drivers--usb--serial--kobil_sct.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-2b9ec6c-1-106_1a-drivers--usb--gadget--g_printer.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-39a1d13-1-101_1a-drivers--block--virtio_blk.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-42f9f8d-1-111_1a-sound--oss--opl3.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-468e4e3-1-204_8a-drivers--net--jme.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-47dffc7-1-144_2a-drivers--net--usb--cdc-phonet.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-4a349aa-1-32_7a-drivers--media--video--tlg2300--poseidon.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-4ee267b-1-130_7a-drivers--hwmon--ibmaem.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-5934df9-1-111_1a-drivers--scsi--gdth.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-5fdb450-1-144_1a-drivers--mmc--host--vub300.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-5fdb450-1-144_2a-drivers--mmc--host--vub300.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-8817633-1-144_2a-drivers--staging--media--easycap--easycap.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-8a9f335-1-32_7a-drivers--net--wireless--ath--carl9170--carl9170.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-90a4845-1-110_1a-drivers--char--ipmi--ipmi_si.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-a450319-1-144_1a-drivers--input--tablet--acecad.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-a450319-1-144_2a-drivers--input--tablet--acecad.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-validator-v0.8/linux-stable-a9e7fb5-1-32_7a-drivers--media--rc--imon.ko-entry_point_ldv-val-v0.8.cil.out.c</include>
+    </tasks>
+</benchmark>

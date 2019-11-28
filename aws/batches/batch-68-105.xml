@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-ethernet-intel-ixgbe-ixgbe.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-ethernet-nvidia-forcedeth.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-ethernet-ti-tlan.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-fddi-skfp-skfp.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-wireless-b43legacy-b43legacy.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-wireless-ipw2x00-ipw2100.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-wireless-libertas-libertas.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-wireless-mwifiex-mwifiex.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-mutex_drivers-net-wireless-rtlwifi-rtl8723ae-rtl8723ae.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-media-i2c-cx25840-cx25840.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-media-pci-saa7164-saa7164.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-media-usb-gspca-gspca_ov519.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-media-usb-gspca-gspca_topro.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-media-usb-tm6000-tm6000.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-3com-3c59x.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-atheros-atl1c-atl1c.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-broadcom-bnx2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-cisco-enic-enic.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-marvell-skge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-marvell-sky2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-myricom-myri10ge-myri10ge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_linux-kernel-locking-spinlock_drivers-net-ethernet-qlogic-qlge-qlge.cil.c</include>
+    </tasks>
+</benchmark>

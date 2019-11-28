@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>OSS/vice-3.3/xplus4.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">9</option>
+      <include>OSS/vice-3.3/xscpu64.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">10</option>
+      <include>OSS/vice-3.3/xvic.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vifm-0.10/vifm.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">7</option>
+      <include>OSS/vim-8.1.1073/vim.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vim-8.1.1073/xxd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vinagre-3.22.0+35+gadcb63c/vinagre.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/virglrenderer-0.7.0/virgl_test_server.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/visitors-0.7/visitors.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vnstat-2.1/vnstat.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vnstat-2.1/vnstatd.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vnstat-2.1/vnstati.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/volumeicon-0.5.1/volumeicon.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vorbisgain-0.37/vorbisgain.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vpnc-0.5.3.r454.r67/cisco-decrypt.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vpnc-0.5.3.r454.r67/vpnc.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/vte-0.28.2/vte.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/w3m-0.5.3.git20180125/inflate.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">7</option>
+      <include>OSS/w3m-0.5.3.git20180125/w3m.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/w3m-0.5.3.git20180125/w3mbookmark.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/w3m-0.5.3.git20180125/w3mhelperpanel.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>OSS/w3m-0.5.3.git20180125/w3mimgdisplay.bc</include>
+    </tasks>
+</benchmark>

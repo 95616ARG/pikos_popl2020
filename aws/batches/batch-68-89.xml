@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--block--paride--pcd.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--block--paride--pf.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--block--paride--pg.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--block--paride--pt.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--char--ipmi--ipmi_msghandler.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--edac--i7300_edac.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--gpu--drm--ast--ast.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--gpu--drm--gma500--gma500_gfx.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--gpu--drm--vmwgfx--vmwgfx.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--abituguru3.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--amc6821.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--asb100.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--max16065.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--w83781d.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--w83791d.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--hwmon--w83792d.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw-cxgb3--iw_cxgb3.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--nes--iw_nes.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--isdn--hardware--eicon--divadidd.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--isdn--mISDN--l1oip.ko-main.cil.out.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--md--dm-snapshot.ko-main.cil.out.c</include>
+    </tasks>
+</benchmark>

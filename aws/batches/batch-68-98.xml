@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-sh_vou.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-soc_camera-sh_mobile_ceu_camera.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-vsp1-vsp1.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-radio-wl128x-fm_drv.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-rc-nuvoton-cir.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-au0828-au0828.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-dvb-usb-v2-dvb-usb-mxl111sf.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-em28xx-em28xx-v4l.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-gspca-gspca_ov519.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-tm6000-tm6000.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-8390-axnet_cs.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-amd-amd8111e.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-atheros-atl1c-atl1c.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-atheros-atl1e-atl1e.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-atheros-atlx-atl2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-broadcom-bnx2.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-cisco-enic-enic.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-dlink-dl2k.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-dlink-sundance.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-dnet.cil.c</include>
+    </tasks>
+</benchmark>

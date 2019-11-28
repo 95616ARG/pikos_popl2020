@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-base">
+    </rundefinition>
+    <rundefinition name="interval-cc2">
+      <option name="--cc"/>
+      <option name="-nt">2</option>
+    </rundefinition>
+    <rundefinition name="interval-cc4">
+      <option name="--cc"/>
+      <option name="-nt">4</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-e1000e-e1000e.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-i40e-i40e.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igb-igb.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-ixgbe-ixgbe.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-ixgb-ixgb.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-neterion-s2io.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-neterion-vxge-vxge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-nvidia-forcedeth.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-sfc-sfc.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-vmxnet3-vmxnet3.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-ath-ath10k-ath10k_pci.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-3com-3c59x.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-broadcom-tg3.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-emulex-benet-be2net.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-intel-e1000-e1000.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-intel-ixgb-ixgb.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-neterion-vxge-vxge.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-nvidia-forcedeth.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-via-via-velocity.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-wireless-rtlwifi-rtl8192de-rtl8192de.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-alloc-spinlock_drivers-net-xen-netfront.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_linux-drivers-clk1_drivers-net-ethernet-cadence-macb.cil.c</include>
+    </tasks>
+</benchmark>

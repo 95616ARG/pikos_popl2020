@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.18//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.18.dtd">
+<benchmark tool="tools.pikos" walltimelimit="14400 s" threads="1">
+    <option name="-q"/>
+    <option name="-w"/>
+    <option name="--rm-db"/>
+    <option name="--display-times">no</option>
+    <option name="--display-summary">no</option>
+    <option name="--progress">no</option>
+    <option name="--inline-all"/>
+    <option name="--proc">inter</option>
+    <option name="--no-checks"/>
+    <option name="--no-fixpoint-cache"/>
+    <option name="--prec">mem</option>
+    <option name="-d">interval</option>
+
+    <rundefinition name="interval-cc6">
+      <option name="--cc"/>
+      <option name="-nt">6</option>
+    </rundefinition>
+    <rundefinition name="interval-cc8">
+      <option name="--cc"/>
+      <option name="-nt">8</option>
+    </rundefinition>
+
+    <tasks>
+      <option name="-cs">0</option>
+      <include>dummy.bc</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-sun-niu.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-via-via-rhine.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-via-via-velocity.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-vmxnet3-vmxnet3.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-b43legacy-b43legacy.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-hostap-hostap.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-libertas-libertas.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-mwifiex-mwifiex.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-rndis_wlan.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-rtl818x-rtl8180-rtl8180.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-rtlwifi-rtl8188ee-rtl8188ee.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-media-pci-bt8xx-bttv.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-gspca-gspca_topro.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-hdpvr-hdpvr.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-tm6000-tm6000.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-uvc-uvcvideo.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-atheros-alx-alx.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-broadcom-tg3.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-chelsio-cxgb4vf-cxgb4vf.cil.c</include>
+    </tasks>
+    <tasks>
+      <option name="-cs">0</option>
+      <include>SVC/ldv-challenges/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-e1000-e1000.cil.c</include>
+    </tasks>
+</benchmark>
