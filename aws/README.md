@@ -133,8 +133,8 @@ The trust policy for your job role needs to extend to ec2 and ECS. Go to edit tr
 - `download_from_s3.sh` downloads the results in BUCKET2 to current directory.
 - `merge_csv.py` merges the downloaded results into `unprocessed.csv`.
 - `partition.py` partitions the list of benchmarks into batches in `batches/`.
-- `experiments/` contains the batch configurations.
-  - `experiments/batch-{config}-{batch number}.xml` is fed into `benchexec` in an instance.
+- `batches/` contains the batch configurations.
+  - `batches/batch-{config}-{batch number}.xml` is fed into `benchexec` in an instance.
 
 # Reproducing data on AWS instances
 ## Steps to reproduce data [`../results-paper/all.csv`](../results-paper/all.csv) and table 3.

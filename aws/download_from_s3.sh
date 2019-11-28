@@ -7,4 +7,4 @@ if [[ $# == 1 ]]; then
   BUCKET2=s3://$1
 fi
 
-aws s3 cp --recursive $BUCKET results-ikos
+aws s3 cp --recursive $BUCKET2 results-ikos

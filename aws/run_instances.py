@@ -59,6 +59,6 @@ if __name__ == '__main__':
         for i in range(nbatches):
             ud = udt.replace('{batch}', str(i))
             # Lauch an instance
-            instance = run_instance(instType, amiImageId, securityGroup, keyName, iamRole, ud)
+            instance = run_batch(instType, amiImageId, securityGroup, keyName, iamRole, ud)
             print(instance['Instances'][0]['InstanceId'])
             time.sleep(5)
