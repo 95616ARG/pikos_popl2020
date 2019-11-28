@@ -74,7 +74,7 @@ The following command will download the image and run it interactivley:
 ```
 $ docker run --rm -v /sys/fs/cgroup:/sys/fs/cgroup:rw -w /pikos_popl2020 -it --privileged skkeem/pikos:dev
 ```
-sha256:20562d568bfa0f5e521b9f326393fd3dff67054380eb0aa7177c298e8350a0f8
+sha256:ffac625f80398e56c68d37987522be2db4d25807e6b74c84a8dd9e44e20a6ee5
 
 One can also build the image using the Dockerfile in this repo.
 ```
