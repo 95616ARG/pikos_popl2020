@@ -171,10 +171,10 @@ private:
   }
 
   /// \brief Increment the number of outer predecessors.
-  void set_num_outer_preds(WpoIdx idx, uint32_t num) {
+  void inc_num_outer_preds(WpoIdx idx) {
     ikos_assert_msg(_type == Type::Exit,
                     "Trying to add outer preds info to a non-exit node.");
-    _num_outer_preds[idx] = num;
+    _num_outer_preds[idx]++;
   }
 
 public:
@@ -325,14 +325,19 @@ class WpoBuilder final {
         _next_dfn(1), _next_post_dfn(1), _next_idx(0), _lift(lift) {
     construct_auxilary(cfg);
     construct_wpo();
-    // Inner preds to outer preds.
-    for (auto& m : _num_inner_preds) {
-      auto& exitNode = node_of(m.first);
-      for (auto& p : m.second) {
-        auto& toNode = node_of(p.first);
-        auto num_preds = toNode.get_num_preds();
-        exitNode.set_num_outer_preds(index_of(p.first), num_preds - p.second);
+    // Compute num_outer_preds.
+    for (auto& p : _for_outer_preds) {
+      auto& v = p.first;
+      auto& x_max = p.second;
+      auto h = _wpo_space[v].is_head() ? v : _parent[v];
+      // index of exit == index of head - 1.
+      auto x = h - 1;
+      while (x != x_max) {
+        _wpo_space[x].inc_num_outer_preds(v);
+        h = _parent[h];
+        x = h - 1;
       }
+      _wpo_space[x].inc_num_outer_preds(v);
     }
   }
 
@@ -511,7 +516,7 @@ class WpoBuilder final {
       add_node(x_h, get_ref(h), Type::Exit, size_h, false);
       bool widen = true;
       for (auto v : nested_SCCs_h) {
-        if (node_of(v).is_widening_point()) {
+        if (node_of(v).is_head()) {
           widen = false;
           break;
         }
@@ -551,6 +556,7 @@ class WpoBuilder final {
       for (auto v : nested_SCCs_h) {
         dsets.union_set(v, h);
         rep[dsets.find_set(v)] = h;
+        _parent[index_of(v)] = index_of(h);
       }
 
       // Set exit of h to x_h.
@@ -562,6 +568,7 @@ class WpoBuilder final {
     for (uint32_t v = 1; v < get_next_dfn(); v++) {
       if (rep[dsets.find_set(v)] == v) {
         add_toplevel(v);
+        _parent[index_of(v)] = index_of(v);
 
         for (auto& edge : origin[v]) {
           auto& u = edge.first;
@@ -628,10 +635,7 @@ class WpoBuilder final {
     auto& toNode = node_of(to);
     if (!fromNode.is_successor(toIdx)) {
       if (outer_pred) {
-        auto& num_inner_preds_x = _num_inner_preds[exit];
-        if (num_inner_preds_x.find(to) == num_inner_preds_x.end()) {
-          num_inner_preds_x[to] = toNode.get_num_preds();
-        }
+        _for_outer_preds.push_back(std::make_pair(toIdx, index_of(exit)));
       }
       fromNode.add_successor(toIdx);
       toNode.add_predecessor(fromIdx);
@@ -658,8 +662,12 @@ class WpoBuilder final {
   std::unordered_map<uint32_t, std::vector<uint32_t>> _non_back_preds;
   /// \brief A map from DFN to cross/forward edges (DFN is the lowest common ancestor).
   std::unordered_map<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>> _cross_fwds;
-  /// \brief A map from DFN (exit) to a map from DFN to its number of inner preds.
-  std::unordered_map<uint32_t, std::unordered_map<uint32_t, uint32_t>> _num_inner_preds;
+  /// \brief Increase m_num_outer_preds[x][pair.first] for component C_x that satisfies
+  // pair.first \in C_x \subseteq C_{pair.second}.
+  std::vector<std::pair<WpoIdx, WpoIdx>> _for_outer_preds;
+  /// \brief A map from node to the head of minimal component that contains it as
+  // non-header.
+  std::unordered_map<WpoIdx, WpoIdx> _parent;
   /// \brief Next DFN to assign.
   uint32_t _next_dfn;
   /// \brief Next post DFN to assign.
