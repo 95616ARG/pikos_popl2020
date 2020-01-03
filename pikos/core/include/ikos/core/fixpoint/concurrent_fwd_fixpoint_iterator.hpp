@@ -330,6 +330,7 @@ public:
         _it->set_pre(_node, std::move(pre));
       }
       _it->set_post(_node, std::move(_it->analyze_node(_node, _it->pre(_node))));
+      _executed_control_preds = 0;
       return _control_successors;
     }
 
@@ -395,6 +396,7 @@ public:
     const CellPtrVector& apply_exit_rule() {
       bool stabilized = _header_cell->check_stabilization_and_widen_in_join_node();
       if (stabilized) {
+        _executed_control_preds = 0;
         return _control_successors;
       } else {
         // Not stabilized.
@@ -415,6 +417,7 @@ public:
       }
       _it->set_pre(_node, pre);
       _it->set_post(_node, std::move(_it->analyze_node(_node, std::move(pre))));
+      _executed_control_preds = 0;
       return _control_successors;
     }
 
@@ -477,8 +480,6 @@ public:
 
         // Run the cell.
         const auto& succs = cell->apply_rule();
-        // Reset the executed_control_preds.
-        cell->_executed_control_preds = 0;
         // Notify the control successors.
         for (Cell* succ : succs) {
           int curr = succ->_executed_control_preds.fetch_and_increment();
