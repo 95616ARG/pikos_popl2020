@@ -103,15 +103,12 @@ private:
   uint32_t _size;
   /// \brief Number of outer predecessors w.r.t. the component (for exits only)
   std::unordered_map<WpoIdx, uint32_t> _num_outer_preds;
-  /// \brief Is this widening point?
-  bool _widen;
 
 public:
   WpoNode(const NodeRef& node,
           Type type,
-          uint32_t size,
-          bool widen)
-    : _node(node), _type(type), _size(size), _widen(widen) {}
+          uint32_t size)
+    : _node(node), _type(type), _size(size) {}
 
 public:
   /// \brief Return the GraphRef for this node
@@ -147,11 +144,6 @@ public:
   /// \brief Get size of the SCC.
   uint32_t get_size() const {
     return _size;
-  }
-
-  /// \brief Is widening point?
-  bool is_widening_point() const {
-    return _widen;
   }
 
 private:
@@ -220,7 +212,7 @@ public:
     : _lifted(lift) {
     auto root = GraphTrait::entry(cfg);
     if (GraphTrait::successor_begin(root) == GraphTrait::successor_end(root)) {
-      _nodes.emplace_back(root, Type::Plain, /*size=*/1, false);
+      _nodes.emplace_back(root, Type::Plain, /*size=*/1);
       _toplevel.push_back(0);
       return;
     }
@@ -285,11 +277,6 @@ public:
   }
   bool is_exit(WpoIdx idx) const {
     return _nodes[idx].is_exit();
-  }
-
-  /// \brief Check whether a node is widening point.
-  bool is_widening_point(WpoIdx idx) const {
-    return _nodes[idx].is_widening_point();
   }
 
   /// \brief Check whether a predecessor is outside of the component.
@@ -497,7 +484,7 @@ class WpoBuilder final {
       // h is a Trivial SCC.
       if (!is_SCC) {
         size[h] = 1;
-        add_node(h, get_ref(h), Type::Plain, /*size=*/1, false);
+        add_node(h, get_ref(h), Type::Plain, /*size=*/1);
         // Invariant: wpo_space = ...::h
         continue;
       }
@@ -513,15 +500,8 @@ class WpoBuilder final {
 
       // Add new exit x_h.
       auto x_h = dfn++;
-      add_node(x_h, get_ref(h), Type::Exit, size_h, false);
-      bool widen = true;
-      for (auto v : nested_SCCs_h) {
-        if (node_of(v).is_head()) {
-          widen = false;
-          break;
-        }
-      }
-      add_node(h, get_ref(h), Type::Head, size_h, widen);
+      add_node(x_h, get_ref(h), Type::Exit, size_h);
+      add_node(h, get_ref(h), Type::Head, size_h);
       // Invariant: wpo_space = ...::x_h::h
       if (backpreds_h.empty()) {
         // Add scheduling constraints from h to x_h
@@ -615,9 +595,9 @@ class WpoBuilder final {
     return _next_dfn;
   }
 
-  void add_node(uint32_t dfn, NodeRef ref, Type type, uint32_t size, bool widen) {
+  void add_node(uint32_t dfn, NodeRef ref, Type type, uint32_t size) {
     _d2i[dfn] = _next_idx++;
-    _wpo_space.emplace_back(ref, type, size, widen);
+    _wpo_space.emplace_back(ref, type, size);
   }
 
   WpoNodeT& node_of(uint32_t dfn) {
