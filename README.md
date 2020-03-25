@@ -57,17 +57,9 @@ Detailed AWS configurations and scripts used by the authors are provided in [`aw
 
 The reference environment uses **`Ubuntu 16.04`**.
 
-### AMI
-
-An AMI is provided for AWS, so the installation may be skipped for it.
-The name of the public AMI is `pikos-popl2020`.
-Its AMI-id is `ami-04c5929ccd4e5b841`.
-Username for connecting this image is `ubuntu`.
-**This image is NOT meant to be used for the scripts in `aws/`**.
-
 ### Docker
 
-A docker image is also provided as an alternative. Skip the installation section if you are using the docker.
+Skip the installation section if you are using the docker.
 One needs `docker` installed.
 The image is availabe in the DockerHub repository `skkeem/pikos:dev`.
 The following command will download the image and run it interactivley:

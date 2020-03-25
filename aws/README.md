@@ -25,10 +25,7 @@ BenchExec mentioned in the dependencies is also required to generate tables.
 
 ### AMI
 
-Use the image `pikos-aws` in `us-west-2` region, whose AMI-id is `ami-01f8031a36fcb210d`.
-(The image `pikos-popl2020` mentioned in `../README.md` **cannot** be used
-for this scripts!)
-
+One first needs to create an AMI image.
 To create this image, follow the steps in [Install Dependencies](../README.md#Installation).
 The scripts assume that `pikos` is in PATH.
 [`../tools/`](../tools) in this repository should be in `/home/ubuntu`.
