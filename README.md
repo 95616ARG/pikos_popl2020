@@ -40,6 +40,7 @@ Preprint: [http://arxiv.org/abs/1909.05951](http://arxiv.org/abs/1909.05951).
 It mainly consists of our parallel abstract interpreter PIKOS, 4330 benchmarks used in the experiments, and scripts to reproduce the results in the paper.
 
 PIKOS is based on a sequential abstract interpreter, [IKOS](https://github.com/NASA-SW-VnV/ikos).
+The files changed in IKOS to implement PIKOS are summarized in [`CHANGES.md`](CHANGES.md).
 Given a program as input, both IKOS and PIKOS compute invariants on each program point and run checks on them.
 In fact, PIKOS is implemented as an analysis option of IKOS, allowing it to compute the invariants in parallel using multiple CPU cores.
 Therefore, **PIKOS requires multi-core machines to reproduce the results.**
